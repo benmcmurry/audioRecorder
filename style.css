@@ -1,0 +1,135 @@
+@-webkit-keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-moz-keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-ms-keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-o-keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+        ;
+    }
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+div#content-wrapper {
+    background-color: cornflowerblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    height: 100vh;
+}
+
+div#content {
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div#main {
+    background-color: white;
+    border: 1px black solid;
+    padding: 10px;
+    height: 200px;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+a#rec {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: cornflowerblue;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a#rec:hover {
+    background-color: darkblue;
+}
+
+a#rec:active {
+    position: relative;
+    top: 1px;
+}
+
+div#prompt {
+    display: none;
+    height: 200px;
+    font-family: Georgia, 'Times New Roman', Times, serif
+}
+
+div#prompt p {
+    padding-bottom: 10px;
+}
+
+div#timer_container {
+    display: none;
+    width: 300px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+
+img#type {
+    width: 32px;
+    height: 32px;
+    animation-name: opacity_change;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+div#display-box {
+    display: none;
+}
+
+div#user {
+    background-color: white;
+    border: 1px black solid;
+    padding: 0px 10px;
+    width: 300px;
+    text-align: center;
+}

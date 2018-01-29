@@ -1,11 +1,12 @@
 <?php
 include_once('../../connectFiles/connect_ar.php');
+define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
 // $targetdir = '/Users/Ben/Sites/audioRecorder/uploads/'; 
-$targetdir = '/var/www/html/audioRecorder/uploads/';     
+$targetdir = '/uploads/';     
 // name of the directory where the files should be stored
 $time = date('Y-m-d-His');
-$targetFile = $targetdir."prompt_".$_POST['prompt_id']."-".$_POST['owner']."-".$time.".webm";
+$targetFile = SITE_ROOT.$targetdir."prompt_".$_POST['prompt_id']."-".$_POST['owner']."-".$time.".webm";
 
 
 if (move_uploaded_file($_FILES['myBlob']['tmp_name'], $targetFile)) {

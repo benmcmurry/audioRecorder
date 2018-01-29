@@ -1,7 +1,8 @@
 <?php
 include_once('../../connectFiles/connect_ar.php');
 
-$targetdir = '/Users/Ben/Sites/audioRecorder/uploads/';   
+// $targetdir = '/Users/Ben/Sites/audioRecorder/uploads/'; 
+$targetdir = '/var/www/html/audioRecorder/uploads/';     
 // name of the directory where the files should be stored
 $time = date('Y-m-d-His');
 $targetFile = $targetdir."prompt_".$_POST['prompt_id']."-".$_POST['owner']."-".$time.".webm";

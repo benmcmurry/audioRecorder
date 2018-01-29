@@ -47,10 +47,8 @@ $result = $result->fetch_assoc();
                 <div id='main'>
                     <div id='first_screen'>                    
                         <audio id='test' autoplay></audio>
-                        <a class='button' id='test_record'>Test Microphone</a>
-                        <a class='button' id='testing'>Please speak</a>
-                        <a class='button' id='listening'>Please Listen</a>
-                        <a class='button' id="rec">Begin</a>
+                        <a id='test_record'>Test Microphone</a>
+                        <a id="rec">Begin</a>
                     </div>
                     <div id='prompt'>
                         <?php 

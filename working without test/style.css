@@ -78,21 +78,6 @@ div#main {
     align-items: center;
 }
 
-div#first_screen {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
-
-a {
-    text-align: center;
-}
-
-a.button {
-    display: block;
-    margin: 10px;
-}
-
 a#rec {
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -109,52 +94,6 @@ a#rec:hover {
 a#rec:active {
     position: relative;
     top: 1px;
-}
-
-a#test_record {
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: cornflowerblue;
-    padding: 10px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-a#test_record:hover {
-    background-color: darkblue;
-}
-
-a#test_record:active {
-    position: relative;
-    top: 1px;
-}
-
-a#testing {
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: darkred;
-    padding: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    display: none;
-    animation-name: opacity_change;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-a#listening {
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: forestgreen;
-    padding: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    display: none;
-    animation-name: opacity_change;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 div#prompt {

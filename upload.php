@@ -2,7 +2,6 @@
 include_once('../../connectFiles/connect_ar.php');
 define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
-// $targetdir = '/Users/Ben/Sites/audioRecorder/uploads/'; 
 $targetdir = '/uploads/';     
 // name of the directory where the files should be stored
 $time = date('Y-m-d-His');

@@ -5,13 +5,6 @@ include_once('../../connectFiles/connect_ar.php');
 
 
 
-
-$query = $elc_db->prepare("Select * from prompts where prompt_id=?");
-$query->bind_param("s", $prompt_id);
-$query->execute();
-$result = $query->get_result();
-$result = $result->fetch_assoc();
-
 ?>
 
     <!DOCTYPE html>

@@ -6,7 +6,7 @@ include_once('../../connectFiles/connect_ar.php');
 
 $netid = "blm39";
 
-$query = $elc_db->prepare("Select * from prompts where prompt_id=?");
+$query = $elc_db->prepare("Select * from Prompts where prompt_id=?");
 $query->bind_param("s", $prompt_id);
 $query->execute();
 $result = $query->get_result();
@@ -43,7 +43,11 @@ $result = $result->fetch_assoc();
 
     <body>
         <div id='content-wrapper'>
+        <div id="header">
+                    <?php include_once("common_content/header.php");?>
+                </div>
             <div id='content'>
+                
                 <div id='main'>
                     <div id='first_screen'>                    
                         <audio id='test' autoplay></audio>
@@ -69,11 +73,11 @@ $result = $result->fetch_assoc();
                     </div> <!-- end prompt div -->
                     
                 </div> <!-- end main div -->
-                <div id="user">
-                <?php echo $id;?>
-            </div>
+                
             </div> <!-- end content div -->
-            
+            <div id='footer'>
+                <?php include_once("common_content/footer.php"); ?>
+</div>
         </div> <!-- end prompt-wrapper div -->
 
 

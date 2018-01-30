@@ -15,7 +15,7 @@ echo "Your response has been saved.";
 }
 
 
-$query = $elc_db->prepare("Insert into audio_files (prompt_id, owner, filename, filesize, filetype, date_created) Values (?,?,?,?,?,now())");
+$query = $elc_db->prepare("Insert into Audio_files (prompt_id, owner, filename, filesize, filetype, date_created) Values (?,?,?,?,?,now())");
 $query->bind_param("sssss", $_POST['prompt_id'], $_POST['owner'], $targetFile, $_FILES['myBlob']['size'], $_FILES['myBlob']['type']);
 $query->execute();
 $result = $query->get_result();

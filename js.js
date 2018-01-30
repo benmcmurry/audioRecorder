@@ -7,7 +7,6 @@ $("document").ready(function() {
     audioElement.controls = false;
     testAudio = document.querySelector("#test");
     $("#test_record").on("click", testStartRecording);
-    console.log(audioElement);
 
     var mediaRecorder;
     chunks = [];
@@ -19,7 +18,6 @@ function record(stream) {
     mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start(10);
     var url = window.URL || window.webkitURL;
-    console.log(audioElement);
     mediaRecorder.ondataavailable = function(e) {
         chunks.push(e.data);
     }
@@ -49,7 +47,7 @@ function startRecording() {
     })();
     // end timer waiter
 
-    console.log("start recording");
+
     $("#first_screen").hide();
     $("#prompt").show().css({
         "display": "flex",
@@ -72,7 +70,7 @@ function startRecording() {
     (function() {
         setTimeout(function() {
 
-            console.log("stop recording");
+
             $("#timer").hide();
             stopRecording();
         }, 5000 + prepare_time * 1000 + response_time * 1000);

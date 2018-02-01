@@ -1,5 +1,5 @@
 <?php
-header("X-Frame-Options: ALLOW-FROM https://byuelc.instructor.com/");
+header("X-Frame-Options: ALLOW-FROM https://byuelc.instructure.com/");
 $prompt_id = $_GET['prompt_id'];
 include_once("cas-go.php");
 include_once('../../connectFiles/connect_ar.php');

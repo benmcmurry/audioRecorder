@@ -35,7 +35,7 @@ function startRecording() {
     // this sets a timer before the prepare timer starts
     (function() {
         setTimeout(function() {
-            timer(prepare_time, "p")
+            timer(prepare_time, "Prepare ")
             $("#timer_container").css({
                 "display": "flex",
                 "flex-direction": "row",
@@ -53,7 +53,7 @@ function startRecording() {
         "display": "flex",
         "flex-direction": "column",
         "justify-content": "space-between",
-        "align-items": "center"
+        "align-items": "space-between"
     });
 
     //this is a time to wait before recording begins
@@ -62,7 +62,7 @@ function startRecording() {
             navigator.getUserMedia({ "audio": true }, record, errorCallback);
             console.log("start recording");
             $("img#type").attr("src", "images/record.jpg");
-            timer(response_time, "r");
+            timer(response_time, "Recording ");
         }, 5000 + prepare_time * 1000);
 
     })();
@@ -88,19 +88,13 @@ function stopRecording() {
 }
 
 function timer(time, timerType) {
-    if (timerType == "p") {
-        timerType = "Prepare ";
-        time = time + 1;
-    } else {
-        timerType = "Recording ";
-        time = time + 2;
-    }
 
     (function move() {
         if (time > 0) {
-            time = time - 1;
+
             $("#timer").text(timerType + time + "s");
             setTimeout(move, 1000);
+            time = time - 1;
         }
 
     })();

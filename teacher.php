@@ -32,17 +32,19 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."
                 <?php include_once("common_content/header.php");?>
             </div>
             <div id='content'>
-            <?php foreach (phpCAS::getAttributes() as $key => $value) {
-    if (is_array($value)) {
-        echo '<li>', $key, ':<ol>';
-        foreach ($value as $item) {
-            echo '<li><strong>', $item, '</strong></li>';
-        }
-        echo '</ol></li>';
-    } else {
-        echo '<li>', $key, ': <strong>', $value, '</strong></li>' . PHP_EOL;
-    }
-}
+            <?php 
+            echo $name;
+//             foreach (phpCAS::getAttributes() as $key => $value) {
+//     if (is_array($value)) {
+//         echo '<li>', $key, ':<ol>';
+//         foreach ($value as $item) {
+//             echo '<li><strong>', $item, '</strong></li>';
+//         }
+//         echo '</ol></li>';
+//     } else {
+//         echo '<li>', $key, ': <strong>', $value, '</strong></li>' . PHP_EOL;
+//     }
+// }
     ?>
             <div id='newPrompt'>
                     

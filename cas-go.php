@@ -31,4 +31,6 @@ if ($auth) {$net_id = phpCAS::getUser();
   phpCAS::forceAuthentication();
   $id = '';
 }
+
+$name = phpCAS::getAttributes()['name'];
 ?>

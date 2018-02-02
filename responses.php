@@ -43,7 +43,7 @@ include_once('addUser.php');
                         $result = $query->get_result();
                         while ($row = $result->fetch_assoc()) {
                             echo "<div class='prompt' id='".$row['prompt_id']."'>";
-                            echo "<div class='title'>".$row['name']."</div>";
+                            echo "<div class='title'>".$row['name']." : ".$row['date_created']."</div>";
                             echo "<audio controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio>";
                             echo "</div>";
                         }

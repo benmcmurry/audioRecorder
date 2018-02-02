@@ -37,14 +37,14 @@ include_once('addUser.php');
                     <h3>Prompts</h3>
                     <?php
                     
-                        $query = $elc_db->prepare("Select * from Audio_files where prompt_id=? order by date_created DESC");
+                        $query = $elc_db->prepare("Select * from Audio_files natural join Users where prompt_id=? order by date_created DESC");
                         $query->bind_param("s", $prompt_id);
                         $query->execute();
                         $result = $query->get_result();
                         while ($row = $result->fetch_assoc()) {
                             echo "<div class='prompt' id='".$row['prompt_id']."'>";
-                            echo "<div class='title'>Title: <strong>".$row['owner']."</strong></div>";
-                            echo "<div class='link'><audio controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio></div>";
+                            echo "<div class='title'>".$row['name']."</div>";
+                            echo "<audio controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio>";
                             echo "</div>";
                         }
                         

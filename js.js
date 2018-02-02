@@ -109,7 +109,7 @@ function uploadRecording(blob) {
     var fd = new FormData();
     fd.append('myBlob', blob);
     fd.append('prompt_id', prompt_id);
-    fd.append('owner', netid);
+    fd.append('netid', netid);
     $.ajax({
         type: 'POST',
         url: 'upload.php',

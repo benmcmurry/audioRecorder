@@ -33,20 +33,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."
                 <?php include_once("common_content/header.php");?>
             </div>
             <div id='content'>
-            <?php 
-            echo $name;
-//             foreach (phpCAS::getAttributes() as $key => $value) {
-//     if (is_array($value)) {
-//         echo '<li>', $key, ':<ol>';
-//         foreach ($value as $item) {
-//             echo '<li><strong>', $item, '</strong></li>';
-//         }
-//         echo '</ol></li>';
-//     } else {
-//         echo '<li>', $key, ': <strong>', $value, '</strong></li>' . PHP_EOL;
-//     }
-// }
-    ?>
+            
             <div id='newPrompt'>
                     
                     <a id='addPrompt' title='Create New Prompt'>+</a>
@@ -58,7 +45,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."
                     <h3>Prompts</h3>
                     <?php
                     
-                        $query = $elc_db->prepare("Select * from Prompts where owner=? and archive=0 order by date_created DESC");
+                        $query = $elc_db->prepare("Select * from Prompts where netid=? and archive=0 order by date_created DESC");
                         $query->bind_param("s", $netid);
                         $query->execute();
                         $result = $query->get_result();

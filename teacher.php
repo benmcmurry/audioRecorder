@@ -2,6 +2,7 @@
 $prompt_id = $_GET['prompt_id'];
 include_once("cas-go.php");
 include_once('../../connectFiles/connect_ar.php');
+include_once('addUser.php');
 
 if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."/~Ben";} else {$server=" https://".$_SERVER['SERVER_NAME'];}
 

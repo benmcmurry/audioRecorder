@@ -36,7 +36,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."
             
             <div id='newPrompt'>
                     
-                    <a id='addPrompt' title='Create New Prompt'>+</a>
+                    <a id='addPrompt' href='addPrompt.php' title='Create New Prompt'>+</a>
                     
                 
                 </div>

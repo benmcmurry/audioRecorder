@@ -30,6 +30,7 @@ include_once('addUser.php');
     <body>
         <div id='content-wrapper'>
             <div id="header">
+                <a id='returnToPromptList' href='teacher.php'>&nbsp;<img width='12px' src='images/return.png' />&nbsp;Return to prompt list</a>
                 <?php include_once("common_content/header.php");?>
             </div>
             <div id='content' class='editor'>

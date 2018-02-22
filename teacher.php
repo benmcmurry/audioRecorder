@@ -53,7 +53,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."
                             echo "<div class='prompt' id='".$row['prompt_id']."'>";
                             echo "<div class='title'>Title: <strong>".$row['title']."</strong> (last modified: ".$row['date_created'].")</div>";
                             echo "<div class='link'>Link: ".$server."/audioRecorder/?prompt_id=".$row['prompt_id']."</div>";
-                            echo "<div class='action_list'><a class='archive' data-promptId='".$row['prompt_id']."'>Archive</a><a class='edit' href='editor.php?prompt_id=".$row['prompt_id']."'>Edit</a><a class='responses' href='responses.php?prompt_id=".$row['prompt_id']."'>View Responses</a></div>";
+                            echo "<div class='action_list'><a class='archive' data-promptId='".$row['prompt_id']."'>Archive</a><a class='responses' href='responses.php?prompt_id=".$row['prompt_id']."'>Edit and View Responses</a></div>";
                             echo "</div>";
                         }
                         

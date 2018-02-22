@@ -304,6 +304,16 @@ div.action_list a:visited {
     color: blue;
 }
 
+a#returnToPromptList {
+    color: white;
+    text-decoration: none;
+}
+
+a#returnToPromptList:hover {
+    color: white;
+    text-decoration: underline;
+}
+
 div#newPrompt {
     width: 100%;
     border-bottom: 1px solid black;

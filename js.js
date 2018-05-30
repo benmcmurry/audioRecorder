@@ -1,17 +1,59 @@
 $("document").ready(function() {
     'use strict';
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
-    $("#rec").on("click", startRecording);
-    $("#stop").on("click", stopRecording);
-    audioElement = document.querySelector("#audioRecording");
-    audioElement.controls = false;
-    testAudio = document.querySelector("#test");
-    $("#test_record").on("click", testStartRecording);
 
-    var mediaRecorder;
-    chunks = [];
-    var count = 0;
+    if ($("#review").is(":visible")) {
+        review = document.querySelector("#review");
+        fixPlayback(review);
+
+        $("#breakIn").on("click", function() {
+            $("#warningPrompt").show();
+            $(".repeatPassword").focus();
+
+        });
+        $(".repeatPassword").on("keydown", function(e) {
+            if (e.keyCode == 13 && $(".repeatPassword").val() == "repeat") {
+                e.preventDefault();
+                $("#main,#mainReview, #warningPrompt").toggle();
+                var data = this.id.split("-");
+                console.log(data[0]);
+                console.log(data[1]);
+                $("#placeholder").load("removeDBentry.php?prompt_id=" + data[0] + "&netid=" + data[1]);
+
+            }
+        });
+
+    } else {
+
+        $("#rec").on("click", startRecording);
+        $("#stop").on("click", stopRecording);
+        audioElement = document.querySelector("#audioRecording");
+        audioElement.controls = false;
+        testAudio = document.querySelector("#test");
+        $("#test_record").on("click", testStartRecording);
+
+        var mediaRecorder;
+        chunks = [];
+        var count = 0;
+    }
+
+
+
 });
+
+function fixPlayback(audioInQuestion) {
+    audioInQuestion.onloadedmetadata = function() {
+        console.log(' duration: ' + audioInQuestion.duration);
+        if (audioInQuestion.duration === Infinity) {
+            audioInQuestion.currentTime = 1e101;
+            audioInQuestion.ontimeupdate = function() {
+                this.ontimeupdate = () => { return; }
+                console.log('after workaround: ' + audioInQuestion.duration);
+                audioInQuestion.currentTime = 0.0001;
+            }
+        }
+    }
+}
 
 function record(stream) {
     audioElement.controls = false;
@@ -22,10 +64,13 @@ function record(stream) {
         chunks.push(e.data);
     }
     mediaRecorder.onstop = function() {
-        var blob = new Blob(chunks, { type: "audio/webm", name: "myRecording.webm" });
-        chunks = [];
-        var audioURL = window.URL.createObjectURL(blob);
+        var blob = new Blob(chunks, { 'type': 'audio/ogg; codecs=opus' });
+        // chunks = [];
+        var audioURL = window.URL.createObjectURL(new Blob(chunks));
         audioElement.src = audioURL;
+
+        fixPlayback(audioElement);
+
         console.log("url: " + audioURL);
         uploadRecording(blob);
     }
@@ -82,9 +127,11 @@ function startRecording() {
 function stopRecording() {
     console.log("stop recording");
     mediaRecorder.stop();
+
     $("#display-box").show();
     $("#timer_container").hide();
     audioElement.controls = true;
+
 }
 
 function timer(time, timerType) {

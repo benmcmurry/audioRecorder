@@ -5,11 +5,13 @@ define ('SITE_ROOT', realpath(dirname(__FILE__)));
 $targetdir = '/uploads/';     
 // name of the directory where the files should be stored
 $time = date('Y-m-d-His');
-$targetFile = SITE_ROOT.$targetdir."prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".webm";
-$fileLocation = "uploads/prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".webm";
+$fileName="prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".ogg";
+$targetFile = SITE_ROOT.$targetdir."prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".ogg";
+$fileLocation = "uploads/prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".ogg";
 
 if (move_uploaded_file($_FILES['myBlob']['tmp_name'], $targetFile)) {
 echo "Your response has been saved.";
+
 } else { 
     echo "There was an error. Please refresh and try again.";
 }

@@ -27,6 +27,7 @@ $result = $result->fetch_assoc();
 
         <script type="text/javascript">
             var audioElement;
+            var review;
             var chunks = [];
             var prompt_id = <?php echo $prompt_id;?>;
             var netid = "<?php echo $netid; ?>";
@@ -45,8 +46,25 @@ $result = $result->fetch_assoc();
                     <?php include_once("common_content/header.php");?>
                 </div>
             <div id='content'>
-                
-                <div id='main'>
+                <?php
+                    $query2 = $elc_db->prepare("Select * from Audio_files where prompt_id=? and netid=?");
+                    $query2->bind_param("ss", $prompt_id, $netid);
+                    $query2->execute();
+                    $result2 = $query2->get_result();
+                    $result2 = $result2->fetch_assoc();
+                    if (isset($result2)) {
+                        $alreadyDone = TRUE;
+                        echo "<div id='mainReview'>You have already answered this prompt. You can play your answer below.";
+                        echo "<audio id='review' controls><source src='".$result2['filename']."' type='".$result2['filetype']."'></audio>";
+                        echo "<div id='placeholder'></div>";
+                        echo "<div id='breakIn'></div>";
+                        echo "<div id='warningPrompt'>Please enter the password to allow the student to re-record. Please be aware that any previous recordings will be deleted.";
+                        echo "<br /><input class='repeatPassword' id='".$result2['id']."-".$netid."' style='font-size: 1.5em;margin: .2em;' type='password' width='8em'></input>";
+                        echo "</div>";
+                        echo "</div>";
+                    } else {$alreadyDone=FALSE;}
+                ?>
+                <div id='main' <?php if ($alreadyDone) {echo "style='display: none'}";} ?>>
                     <div id='first_screen'>                    
                         <audio id='test' autoplay></audio>
                         <a class='button' id='test_record'>Test Microphone</a>
@@ -71,6 +89,7 @@ $result = $result->fetch_assoc();
                     </div> <!-- end prompt div -->
                     
                 </div> <!-- end main div -->
+                    
                 
             </div> <!-- end content div -->
             <div id='footer'>

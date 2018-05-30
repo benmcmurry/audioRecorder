@@ -117,7 +117,8 @@ div#user a {
     color: white;
 }
 
-div#main {
+div#main,
+div#mainReview {
     background-color: white;
     padding: 2em;
     flex-grow: 1;
@@ -125,6 +126,30 @@ div#main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+div#breakIn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+}
+
+div#warningPrompt {
+    display: none;
+    background-color: white;
+    color: black;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding: 1em;
+    /* height: 4em;
+    width: 8em; */
+    border: solid grey 1px;
+    left: 0;
+    text-align: center;
 }
 
 div#first_screen {
@@ -145,6 +170,7 @@ a.button {
     margin: 10px auto;
     width: 300px;
     font-size: 2em;
+    cursor: pointer;
 }
 
 a#rec,

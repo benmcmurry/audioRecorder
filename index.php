@@ -1,5 +1,7 @@
 <?php
 $prompt_id = $_GET['prompt_id'];
+session_start();
+$_SESSION['prompt_id'] = $prompt_id;
 include_once("cas-go.php");
 include_once('../../connectFiles/connect_ar.php');
 include_once('addUser.php');
@@ -59,7 +61,7 @@ $result = $result->fetch_assoc();
                         echo "<div id='placeholder'></div>";
                         echo "<div id='breakIn'></div>";
                         echo "<div id='warningPrompt'>Please enter the password to allow the student to re-record. Please be aware that any previous recordings will be deleted.";
-                        echo "<br /><input class='repeatPassword' id='".$result2['id']."-".$netid."' style='font-size: 1.5em;margin: .2em;' type='password' width='8em'></input>";
+                        echo "<br /><input class='repeatPassword' id='".$result2['prompt_id']."-".$netid."' style='font-size: 1.5em;margin: .2em;' type='password' width='8em'></input>";
                         echo "</div>";
                         echo "</div>";
                     } else {$alreadyDone=FALSE;}

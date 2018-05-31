@@ -14,11 +14,13 @@ $("document").ready(function() {
         $(".repeatPassword").on("keydown", function(e) {
             if (e.keyCode == 13 && $(".repeatPassword").val() == "repeat") {
                 e.preventDefault();
-                $("#main,#mainReview, #warningPrompt").toggle();
                 var data = this.id.split("-");
+                $("#placeholder").load("removeDBentry.php?prompt_id=" + data[0] + "&netid=" + data[1]);
+                console.log("removeDBentry.php?prompt_id=" + data[0] + "&netid=" + data[1]);
+                $("#main,#mainReview, #warningPrompt").toggle();
+
                 console.log(data[0]);
                 console.log(data[1]);
-                $("#placeholder").load("removeDBentry.php?prompt_id=" + data[0] + "&netid=" + data[1]);
 
             }
         });

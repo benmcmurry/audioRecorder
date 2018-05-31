@@ -22,7 +22,11 @@ if (isset($_REQUEST['logout'])) {
 }
 
 $auth = phpCAS::checkAuthentication();
-if (isset($prompt_id)) {$additional ="&prompt_id=$prompt_id";} else {$additional="";}
+if (isset($prompt_id)) {
+  $additional ="&prompt_id=$prompt_id";
+} else {
+  $additional="";
+}
 
 if ($auth) {$net_id = phpCAS::getUser();
   $netid = phpCAS::getUser();

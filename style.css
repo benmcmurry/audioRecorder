@@ -193,6 +193,8 @@ a#test_record,
 {
     padding: 10px;
     cursor: pointer;
+    background-color: cornflowerblue;
+    text-decoration: none;
 }
 
 a#rec:hover,

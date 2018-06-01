@@ -192,6 +192,7 @@ a#rec,
 a#test_record {
     padding: 10px;
     cursor: pointer;
+    color: white;
     background-color: cornflowerblue;
     text-decoration: none;
 }

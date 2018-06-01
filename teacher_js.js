@@ -1,12 +1,8 @@
 $(document).ready(function() {
-    // $("a#addPrompt").on("click", addPrompt);
     $("a.archive").on("click", archivePrompt);
     $("a#save").on("click", savePrompt);
 });
 
-function addPrompt() {
-
-}
 
 function archivePrompt() {
     prompt_id = $(this).attr('data-promptID');

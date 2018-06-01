@@ -1,0 +1,174 @@
+@-webkit-keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-moz-keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-ms-keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@-o-keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+    }
+}
+
+@keyframes opacity_change {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1.0;
+        ;
+    }
+}
+
+* {}
+
+html {}
+
+body {}
+
+h3 {
+    font-size: 1.5em;
+}
+
+div#content-wrapper {
+    height: 50vh;
+    min-height: 20em;
+    width: 20em;
+}
+
+div#content {
+    width: 100%;
+}
+
+div#content.editor {
+    width: 100%;
+}
+
+div#header {
+    width: 100%;
+}
+
+div#header h1 {
+    font-size: 1em;
+}
+
+div#user {
+    font-size: .8em;
+}
+
+div#user a {}
+
+div#main,
+div#mainReview {}
+
+div#breakIn {}
+
+div#warningPrompt {}
+
+div#first_screen {}
+
+a {}
+
+a.button {
+    font-size: 1.5em;
+    width: 200px;
+}
+
+a#rec,
+a#test_record,
+a#save {}
+
+a#rec:hover,
+a#test_record:hover,
+a#save:hover {}
+
+a#rec:active,
+a#test_record:active,
+a#save:active {}
+
+a#testing {}
+
+a#listening {}
+
+div#prompt {}
+
+div#prompt p {}
+
+#audioRecording {}
+
+div#timer_container {}
+
+div#timer {}
+
+img#type {}
+
+div#display-box {}
+
+div#footer {
+    width: 100%;
+    font-size: .8em;
+}
+
+
+/* teacher styles */
+
+div#promptList {}
+
+div#promptList h3 {}
+
+div.action_list a {}
+
+div.action_list a:visited {}
+
+a#returnToPromptList {}
+
+a#returnToPromptList:hover {}
+
+div#newPrompt {}
+
+a#addPrompt {}
+
+a#addPrompt:hover {}
+
+a#addPrompt:active {}
+
+div.response,
+div.prompt {}
+
+div.response:hover,
+div.prompt:hover {}
+
+div#editorWrapper {}
+
+div#responses,
+div#promptInfo {}
+
+div#responses {}
+
+div#promptInfo h4 {}
+
+.editable {}

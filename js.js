@@ -1,8 +1,11 @@
 $("document").ready(function() {
+    $("a.archive").on("click", archivePrompt);
+    $("a#save").on("click", savePrompt);
     'use strict';
     navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
     if ($("#review").is(":visible")) {
+        $("#breakIn").css("display", "inline-block");
         review = document.querySelector("#review");
         fixPlayback(review);
 
@@ -17,7 +20,7 @@ $("document").ready(function() {
                 var data = this.id.split("-");
                 $("#placeholder").load("removeDBentry.php?prompt_id=" + data[0] + "&netid=" + data[1]);
                 console.log("removeDBentry.php?prompt_id=" + data[0] + "&netid=" + data[1]);
-                $("#main,#mainReview, #warningPrompt").toggle();
+                $("#main,#mainReview, #warningPrompt, #breakIn").toggle();
 
                 console.log(data[0]);
                 console.log(data[1]);
@@ -25,19 +28,19 @@ $("document").ready(function() {
             }
         });
 
-    } else {
-
-        $("#rec").on("click", startRecording);
-        $("#stop").on("click", stopRecording);
-        audioElement = document.querySelector("#audioRecording");
-        audioElement.controls = false;
-        testAudio = document.querySelector("#test");
-        $("#test_record").on("click", testStartRecording);
-
-        var mediaRecorder;
-        chunks = [];
-        var count = 0;
     }
+
+    $("#rec").on("click", startRecording);
+    $("#stop").on("click", stopRecording);
+    audioElement = document.querySelector("#audioRecording");
+    audioElement.controls = false;
+    testAudio = document.querySelector("#test");
+    $("#test_record").on("click", testStartRecording);
+
+    var mediaRecorder;
+    chunks = [];
+    var count = 0;
+
 
 
 
@@ -235,4 +238,35 @@ function testStopRecording() {
         }, 5000);
 
     })();
+}
+
+
+//teacher scripts
+function archivePrompt() {
+    prompt_id = $(this).attr('data-promptID');
+
+    console.log(prompt_id);
+    $.ajax({
+        type: 'POST',
+        url: 'archive.php',
+        data: { prompt_id: prompt_id },
+    }).done(function(phpfile) {
+        $("#" + prompt_id).slideToggle();
+    });
+}
+
+function savePrompt() {
+
+    title = $("#title").text();
+    text = $("#text").text();
+    prepare_time = $("#prepare_time").text();
+    response_time = $("#response_time").text();
+    console.log(title);
+    $.ajax({
+        type: 'POST',
+        url: 'savePrompt.php',
+        data: { prompt_id: prompt_id, title: title, text: text, prepare_time: prepare_time, response_time: response_time },
+    }).done(function(phpfile) {
+        $("#display_box").html(phpfile);
+    });
 }

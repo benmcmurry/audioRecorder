@@ -1,5 +1,14 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
+ini_set("display_errors", 1);
+if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https'){
+    $_SERVER['HTTPS']='on'; 
+}
+require_once 'ims-blti/blti.php';
+$lti = new BLTI("secret", false, false);
+
 $prompt_id = $_GET['prompt_id'];
+$instructor = strpos($_POST['roles'], "Instructor");
 session_start();
 $_SESSION['prompt_id'] = $prompt_id;
 include_once("cas-go.php");
@@ -25,6 +34,17 @@ $result = $result->fetch_assoc();
         <meta id="theme-color" name="theme-color" content="#fff">
         <title>ELC Audio Recorder</title>
         <link rel="stylesheet" href="style.css" />
+        <!-- <link rel="stylesheet" href="style-canvas.css" /> -->
+
+        <?php
+        if ($lti->valid) { 
+            if ($instructor !== FALSE) {
+                echo "<style>div#content-wrapper {height: 40em;} div#content.editor {max-width: 100%;}</style>";
+            } else{
+            echo  "<link rel='stylesheet' href='style-canvas.css' />";
+            }
+            }
+        ?>
         <script src="jquery.js"></script>
 
         <script type="text/javascript">
@@ -43,29 +63,38 @@ $result = $result->fetch_assoc();
     </head>
 
     <body>
+        
         <div id='content-wrapper'>
+        
         <div id="header">
-                    <?php include_once("common_content/header.php");?>
-                </div>
+            <?php include_once("common_content/header.php");?>
+        </div>
+        <?php
+        if ($instructor !== FALSE) {
+            include_once('teacherView.php');
+        } else {
+            ?>
+
             <div id='content'>
-                <?php
-                    $query2 = $elc_db->prepare("Select * from Audio_files where prompt_id=? and netid=?");
-                    $query2->bind_param("ss", $prompt_id, $netid);
-                    $query2->execute();
-                    $result2 = $query2->get_result();
-                    $result2 = $result2->fetch_assoc();
-                    if (isset($result2)) {
-                        $alreadyDone = TRUE;
-                        echo "<div id='mainReview'>You have already answered this prompt. You can play your answer below.";
-                        echo "<audio id='review' controls><source src='".$result2['filename']."' type='".$result2['filetype']."'></audio>";
-                        echo "<div id='placeholder'></div>";
-                        echo "<div id='breakIn'></div>";
-                        echo "<div id='warningPrompt'>Please enter the password to allow the student to re-record. Please be aware that any previous recordings will be deleted.";
-                        echo "<br /><input class='repeatPassword' id='".$result2['prompt_id']."-".$netid."' style='font-size: 1.5em;margin: .2em;' type='password' width='8em'></input>";
-                        echo "</div>";
-                        echo "</div>";
-                    } else {$alreadyDone=FALSE;}
-                ?>
+            <?php
+                    
+            $query2 = $elc_db->prepare("Select * from Audio_files where prompt_id=? and netid=?");
+            $query2->bind_param("ss", $prompt_id, $netid);
+            $query2->execute();
+            $result2 = $query2->get_result();
+            $result2 = $result2->fetch_assoc();
+            if (isset($result2)) {
+                $alreadyDone = TRUE;
+                echo "<div id='mainReview'>You have already answered this prompt. You can play your answer below.";
+                echo "<audio id='review' controls><source src='".$result2['filename']."' type='".$result2['filetype']."'></audio>";
+                echo "<div id='placeholder'></div>";
+                
+                echo "<div id='warningPrompt'>Please enter the password to allow the student to re-record. Please be aware that any previous recordings will be deleted.";
+                echo "<br /><input class='repeatPassword' id='".$result2['prompt_id']."-".$netid."' style='font-size: 1em;margin: .2em;' type='password' width='5em'></input>";
+                echo "</div>";
+                echo "</div>";
+            } else {$alreadyDone=FALSE;}
+        ?>
                 <div id='main' <?php if ($alreadyDone) {echo "style='display: none'}";} ?>>
                     <div id='first_screen'>                    
                         <audio id='test' autoplay></audio>
@@ -94,6 +123,7 @@ $result = $result->fetch_assoc();
                     
                 
             </div> <!-- end content div -->
+                <?php } ?>
             <div id='footer'>
                 <?php include_once("common_content/footer.php"); ?>
 </div>

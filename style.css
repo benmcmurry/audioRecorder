@@ -189,8 +189,7 @@ a#save {
 }
 
 a#rec,
-a#test_record,
-{
+a#test_record {
     padding: 10px;
     cursor: pointer;
     background-color: cornflowerblue;

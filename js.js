@@ -113,7 +113,7 @@ function startRecording() {
             console.log("start recording");
             $("img#type").attr("src", "images/record.jpg");
             timer(response_time, "Recording ");
-        }, 5000 + prepare_time * 1000);
+        }, 5000 + prepare_time * 1000 + 1000);
 
     })();
 
@@ -123,7 +123,7 @@ function startRecording() {
 
             $("#timer").hide();
             stopRecording();
-        }, 5000 + prepare_time * 1000 + response_time * 1000);
+        }, 5000 + prepare_time * 1000 + response_time * 1000 + 2000);
 
     })();
 }
@@ -142,7 +142,7 @@ function stopRecording() {
 function timer(time, timerType) {
 
     (function move() {
-        if (time > 0) {
+        if (time > -1) {
 
             $("#timer").text(timerType + time + "s");
             setTimeout(move, 1000);

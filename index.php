@@ -70,6 +70,12 @@ $result = $result->fetch_assoc();
             <?php include_once("common_content/header.php");?>
         </div>
         <?php
+           foreach($_POST as $key => $value) {
+            print "$key=$value\n";
+        }
+
+?>
+        <?php
         if ($instructor !== FALSE) {
             include_once('teacherView.php');
         } else {

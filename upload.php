@@ -23,8 +23,9 @@ $query->execute();
 $result = $query->get_result();
 $last_id = $elc_db->insert_id;
 
+if (isset($sourcedid)){
 session_start();
-
+}
 $launchlti = "https://elc.byu.edu/audioRecorder/?submission_id=".$last_id;
 
 if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
@@ -78,5 +79,7 @@ $body = '<?xml version = "1.0" encoding = "UTF-8"?>
     $body);
 
 //send response
+if (isset($sourcedid)){
 $response = sendOAuthBodyPOST($method, $endpoint, $oauth_consumer_key, $oauth_consumer_secret, $content_type, $postBody);
+}
 ?>

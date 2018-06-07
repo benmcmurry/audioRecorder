@@ -132,9 +132,10 @@ div#mainReview {
 
 div#breakIn {
     cursor: pointer;
-    width: 1em;
-    height: 1em;
-    border-radius: .5em;
+    width: 1.4em;
+    height: 1.1em;
+    line-height: .9em;
+    border-radius: 1em;
     background-color: darkblue;
     color: white;
     display: inline-block;

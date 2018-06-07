@@ -25,7 +25,7 @@ $last_id = $elc_db->insert_id;
 
 session_start();
 
-$launchlti = "https://elc.byu.edu/audioRecorderLTI/?submission_id=".$last_id;
+$launchlti = "https://elc.byu.edu/audioRecorder/?submission_id=".$last_id;
 
 if (version_compare(PHP_VERSION, '5.3.0') >= 0) {
  error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);

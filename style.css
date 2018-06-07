@@ -238,9 +238,6 @@ a#listening {
 
 div#prompt {
     font-family: Georgia, 'Times New Roman', Times, serif;
-    /* display: flex;
-    justify-content: space-between;
-    align-items: space-between; */
     display: none;
     flex-grow: 10;
 }

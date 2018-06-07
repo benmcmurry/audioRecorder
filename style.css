@@ -237,7 +237,7 @@ a#listening {
 }
 
 div#prompt {
-    height: 100vh;
+    /* height: 100vh; */
     font-family: Georgia, 'Times New Roman', Times, serif;
     display: none;
 }

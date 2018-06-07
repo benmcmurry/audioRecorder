@@ -9,8 +9,12 @@ $lti = new BLTI("secret", false, false);
 
 $prompt_id = $_GET['prompt_id'];
 $instructor = strpos($_POST['roles'], "Instructor");
+$lis_outcome_service_url = $_POST['lis_outcome_service_url'];
+$lis_result_sourcedid = $_POST['lis_result_sourcedid'];
 session_start();
 $_SESSION['prompt_id'] = $prompt_id;
+$_SESSION['lis_outcome_service_url'] = $lis_outcome_service_url;
+$_SESSION['lis_result_sourcedid'] = $lis_result_sourcedid;
 include_once("cas-go.php");
 include_once('../../connectFiles/connect_ar.php');
 include_once('addUser.php');
@@ -20,6 +24,9 @@ $query->bind_param("s", $prompt_id);
 $query->execute();
 $result = $query->get_result();
 $result = $result->fetch_assoc();
+
+
+
 
 ?>
 
@@ -59,6 +66,10 @@ $result = $result->fetch_assoc();
             var testMicrophone = [];
         </script>
         <script src="js.js"></script>
+        <?php
+        if (isset($_GET['submission_id'])) {
+            include_once("submission.php");
+        } else { ?>
 
     </head>
 
@@ -69,7 +80,14 @@ $result = $result->fetch_assoc();
         <div id="header">
             <?php include_once("common_content/header.php");?>
         </div>
-        
+        <?php
+        //for lti info
+
+        //    foreach($_POST as $key => $value) {
+        //     print "$key=$value\n";
+       // }
+
+?>
         <?php
         if ($instructor !== FALSE) {
             include_once('teacherView.php');
@@ -133,3 +151,8 @@ $result = $result->fetch_assoc();
 
 
     </html>
+
+<?php
+
+        }
+        ?>

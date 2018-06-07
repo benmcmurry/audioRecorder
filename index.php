@@ -104,7 +104,7 @@ $result = $result->fetch_assoc();
             $result2 = $result2->fetch_assoc();
             if (isset($result2)) {
                 $alreadyDone = TRUE;
-                echo "<div id='mainReview'>You have already answered this prompt. You can play your answer below.";
+                echo "<div id='mainReview'>You have already answered this prompt. You can play your answer below.<br /> <br />";
                 echo "<audio id='review' controls><source src='".$result2['filename']."' type='".$result2['filetype']."'></audio>";
                 echo "<div id='placeholder'></div>";
                 

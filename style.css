@@ -237,11 +237,12 @@ a#listening {
 }
 
 div#prompt {
-    height: 90vh;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    display: flex;
-    display: none;
+    /* display: flex;
     justify-content: space-between;
+    align-items: space-between; */
+    display: none;
+    flex-grow: 10;
 }
 
 div#prompt p {

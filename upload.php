@@ -23,7 +23,7 @@ $query->execute();
 $result = $query->get_result();
 $last_id = $elc_db->insert_id;
 
-if (isset($sourcedid)){
+if (isset($_SESSION['lis_outcome_service_url'])){
 session_start();
 }
 $launchlti = "https://elc.byu.edu/audioRecorder/?submission_id=".$last_id;

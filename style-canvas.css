@@ -132,7 +132,6 @@ div#display-box {}
 div#footer {
     width: 100%;
     font-size: .8em;
-    height: 6em;
 }
 
 
@@ -159,7 +158,9 @@ a#addPrompt:hover {}
 a#addPrompt:active {}
 
 div.response,
-div.prompt {}
+div.prompt {
+    flex-shrink: 1;
+}
 
 div.response:hover,
 div.prompt:hover {}

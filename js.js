@@ -188,8 +188,8 @@ function testRecord(stream) {
     }
     mediaRecorder.onstop = function() {
         var blob = new Blob(testMicrophone, {
-            type: "audio/webm",
-            name: "myRecording.webm"
+            type: "audio/ogg",
+            name: "myRecording.ogg"
         });
         testMicrophone = [];
         var audioURL = window.URL.createObjectURL(blob);

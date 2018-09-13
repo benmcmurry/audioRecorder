@@ -1,5 +1,5 @@
 <?php
-// include_once('../../connectFiles/connect_ar.php');
+include_once('../../connectFiles/connect_ar.php');
 define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
 $targetdir = '/uploads/';     
@@ -13,15 +13,7 @@ if (move_uploaded_file($_FILES['myBlob']['tmp_name'], $targetFile)) {
 echo "Your response has been saved.";
 if ($_POST['transcription'] == 1) {
     ?>
-    <script type="text/javascript">
-                var prompt_id = <?php echo $_POST['prompt_id'];?>;
-                var netid = "<?php echo $_POST['netid']; ?>";
-                console.log(prompt_id);
-                console.log(netid);
-
-                
-            </script>
-    <?
+  
     echo "<p>Now, please transcribe what you recorded. You can refer back to the audio above.</p>";
     echo "<div id='transcription1' contenteditable='true' class='transcription'></div>";
     echo "<a class='button saveTranscription' id='saveTranscription' onClick='saveTranscription(1)'>Save Transcription</a>";

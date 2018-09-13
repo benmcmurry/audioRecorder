@@ -46,7 +46,7 @@ $result = $result->fetch_assoc();
         <?php
         if ($lti->valid) { 
             if ($instructor !== FALSE) {
-                echo "<style>div#content-wrapper {height: 40em;} div#content.editor {max-width: 100%;} #footer {height: 6em;}</style>";
+                echo "<style>div#content-wrapper {height: 40em;} div#content.editor {max-width: 100%;} </style>";
             } else{
             echo  "<link rel='stylesheet' href='style-canvas.css' />";
             }

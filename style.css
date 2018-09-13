@@ -98,6 +98,7 @@ div#header {
 div#header h1 {
     padding: 10px;
     font-weight: normal;
+    font-size: 1em;
 }
 
 div#user {
@@ -121,13 +122,18 @@ div#user a {
 
 div#main,
 div#mainReview {
-    /* background-color: white; */
+    background-color: #efefef;
     padding: 2em;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+}
+#mainReviewContent {
+    background-color: white;
+    width: 50vw;
+    padding: 1em;
 }
 
 div#breakIn {
@@ -161,10 +167,11 @@ div#warningPrompt {
 div#first_screen {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    width: 100%;
-    flex-grow: 1;
+    width: 50vw;
+    flex-grow: 0;
+    background-color: white;
 }
 
 a {
@@ -175,11 +182,10 @@ a.button {
     display: block;
     margin: 10px auto;
     width: 300px;
-    font-size: 2em;
+    font-size: 1em;
     cursor: pointer;
 }
-
-a#save {
+a#saveTranscription, a#saveTranscription2 {
     width: 250px;
     font-size: 1em;
     margin: 1em 0em;
@@ -187,6 +193,9 @@ a#save {
     background-color: cornflowerblue;
     text-decoration: none;
     padding: 10px 6px;
+}
+a#save {
+   
 }
 
 a#rec,
@@ -200,13 +209,13 @@ a#test_record {
 
 a#rec:hover,
 a#test_record:hover,
-a#save:hover {
+a#save:hover, a#saveTranscription:hover, a#saveTranscription2:hover {
     background-color: darkblue;
 }
 
 a#rec:active,
 a#test_record:active,
-a#save:active {
+a#save:active, a#saveTranscription:hover, a#saveTranscription2:hover {
     position: relative;
     top: 1px;
 }
@@ -240,11 +249,14 @@ a#listening {
 div#prompt {
     font-family: Georgia, 'Times New Roman', Times, serif;
     display: none;
-    flex-grow: 10;
+    flex-grow: 0;
+    background-color: white;
+    width: 50vw;
+    padding: 1em;
 }
 
-div#prompt p {
-    padding-bottom: 10px;
+ p {
+    padding:1em, 0em;
 }
 
 #audioRecording {
@@ -258,6 +270,7 @@ div#timer_container {
     /* width: 100vw; */
     justify-content: space-between;
     display: none;
+    margin-top:1em;
 }
 
 div#timer {}
@@ -275,6 +288,8 @@ div#display-box {
     display: block;
     display: none;
     text-align: center;
+    background-color: white;
+    width:50vw;
 }
 
 div#footer {
@@ -287,10 +302,10 @@ div#footer {
     padding: 10px 0px;
     /* line-height: 12px;
     vertical-align: middle; */
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
+    align-items: flex-start; */
 }
 
 div#footer div {
@@ -300,7 +315,7 @@ div#footer div {
 div#footer div#attribution {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-center;
     font-size: .9em;
     line-height: .9em;
     margin-left: 10px;
@@ -308,12 +323,13 @@ div#footer div#attribution {
 }
 
 div#footer div#attribution span {
+    text-align: center;
     padding: 0px 10px 5px;
 }
 
 @media all and (max-width: 475px) {
     div#header h1 {
-        font-size: 1.8em;
+        font-size: 1em;
     }
     div#user {
         font-size: .8em;
@@ -322,28 +338,28 @@ div#footer div#attribution span {
 
 @media all and (max-width: 420px) {
     div#header h1 {
-        font-size: 1.3em;
+        font-size: 1em;
     }
     div#user {
         font-size: .8em;
     }
 }
 
-@media all and (max-width: 380px) {
+/* @media all and (max-width: 380px) {
     div#header h1 {
-        font-size: 1em;
+        font-size: .8em;
     }
     div#user {
-        font-size: .8em;
+        font-size: .6em;
     }
     div#footer {
-        font-size: .8em;
+        font-size: .6em;
     }
     a.button {
         width: 200px;
         font-size: 1.5em;
     }
-}
+} */
 
 
 /* teacher styles */
@@ -450,6 +466,7 @@ div#responses {
 }
 
 div#promptInfo h4 {
+
     font-size: 1.1em;
     Margin-top: 25px;
 }
@@ -460,4 +477,13 @@ div#promptInfo h4 {
     padding: 5px;
     font-size: 1em;
     width: 250px;
+}
+
+.transcription {
+    margin: 0px 0px 20px;
+    border: 1px gray dashed;
+    padding: 1em;
+    font-size: 1em;
+    display: block;
+    /* width: 80vw; */
 }

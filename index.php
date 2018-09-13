@@ -60,6 +60,7 @@ $result = $result->fetch_assoc();
             var chunks = [];
             var prompt_id = <?php echo $prompt_id;?>;
             var netid = "<?php echo $netid; ?>";
+            var transcription = <?php echo $result['transcription']; ?>;
             var prepare_time = <?php echo $result['prepare_time']; ?>;
             var response_time = <?php echo $result['response_time']; ?>;
             var testAudio;
@@ -104,14 +105,21 @@ $result = $result->fetch_assoc();
             $result2 = $result2->fetch_assoc();
             if (isset($result2)) {
                 $alreadyDone = TRUE;
-                echo "<div id='mainReview'>You have already answered this prompt. You can play your answer below.<br /> <br />";
+                echo "<div id='mainReview'>";
+                echo "<div id='mainReviewContent'><p>You have already answered this prompt. You can play your answer below.</p>";
                 echo "<audio id='review' controls><source src='".$result2['filename']."' type='".$result2['filetype']."'></audio>";
+                if ($result['transcription'] == 1) {
+                    echo "<p>You can update your transcription here.</p>";
+                    echo "<div id='transcription2' contenteditable='true' class='transcription'>{$result2['transcription']}</div>";
+                    echo "<a class='button saveTranscription' id='saveTranscription2' onClick='saveTranscription(0)'>Save Transcription</a>";
+                }
                 echo "<div id='placeholder'></div>";
                 
                 echo "<div id='warningPrompt'>Please enter the password to allow the student to re-record. Please be aware that any previous recordings will be deleted.";
                 echo "<br /><input class='repeatPassword' id='".$result2['prompt_id']."-".$netid."' style='font-size: 1em;margin: .2em;' type='password' width='5em'></input>";
-                echo "</div>";
-                echo "</div>";
+                echo "</div>"; // End warning Prompt/
+                echo "</div>"; //end mainReviewContent
+                echo "</div>"; //end mainReview
             } else {$alreadyDone=FALSE;}
         ?>
                 <div id='main' <?php if ($alreadyDone) {echo "style='display: none'}";} ?>>
@@ -125,10 +133,10 @@ $result = $result->fetch_assoc();
                     <div id='prompt'>
                         <?php 
                        
-                        echo "<p>".$result['text']."<br /><br />"; 
+                        echo "<p>".$result['text']."<br /> <br />"; 
                         echo "You have {$result['prepare_time']} seconds to prepare and {$result['response_time']} seconds to respond.</p>";
                         ?>
-                        <audio id='audioRecording' controls>
+                        <p><audio id='audioRecording' controls></p>
                         </audio>
                         <div id='timer_container'>
                             <img id='type' src='images/lightbulb.jpg' />

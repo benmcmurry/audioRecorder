@@ -29,7 +29,7 @@ $("document").ready(function() {
         });
 
     }
-
+    
     $("#rec").on("click", startRecording);
     $("#stop").on("click", stopRecording);
     audioElement = document.querySelector("#audioRecording");
@@ -162,6 +162,7 @@ function uploadRecording(blob) {
     fd.append('myBlob', blob);
     fd.append('prompt_id', prompt_id);
     fd.append('netid', netid);
+    fd.append('transcription', transcription);
     $.ajax({
         type: 'POST',
         url: 'upload.php',
@@ -265,8 +266,24 @@ function savePrompt() {
     $.ajax({
         type: 'POST',
         url: 'savePrompt.php',
-        data: { prompt_id: prompt_id, title: title, text: text, prepare_time: prepare_time, response_time: response_time },
+        data: { prompt_id: prompt_id, title: title, text: text, prepare_time: prepare_time, response_time: response_time, transcription: transcription },
     }).done(function(phpfile) {
         $("#display_box").html(phpfile);
+    });
+}
+
+function saveTranscription(attempt){
+    if (attempt == 1) {
+    savedTranscription = $("#transcription1").text();
+    } else {
+        savedTranscription = $("#transcription2").text();
+    }
+    console.log(savedTranscription);
+    $.ajax({
+        type: 'POST',
+        url: 'saveTranscription.php',
+        data: {prompt_id: prompt_id, savedTranscription: savedTranscription, netid: netid}
+    }).done(function(phpfile){
+        $("#saveTranscription").html(phpfile);
     });
 }

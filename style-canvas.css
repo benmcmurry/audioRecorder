@@ -86,16 +86,11 @@ div#user a {}
 div#main,
 div#mainReview {}
 
-#mainReviewContent {
-    width: 100%;
-}
 div#breakIn {}
 
 div#warningPrompt {}
 
-div#first_screen {
-    width: 100%;
-}
+div#first_screen {}
 
 a {}
 
@@ -120,9 +115,7 @@ a#testing {}
 
 a#listening {}
 
-div#prompt {
-    width: 100%;
-}
+div#prompt {}
 
 div#prompt p {}
 
@@ -134,9 +127,7 @@ div#timer {}
 
 img#type {}
 
-div#display-box {
-    width: 20em;
-}
+div#display-box {}
 
 div#footer {
     width: 100%;

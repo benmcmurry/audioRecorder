@@ -1,8 +1,5 @@
 <?php
-echo "hello";
-error_reporting(E_ALL & ~E_NOTICE);
-ini_set("display_errors", 1);
-include_once('../../connectFiles/connect_ar.php');
+// include_once('../../connectFiles/connect_ar.php');
 define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
 $targetdir = '/uploads/';     

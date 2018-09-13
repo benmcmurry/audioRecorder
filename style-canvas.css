@@ -87,14 +87,14 @@ div#main,
 div#mainReview {}
 
 #mainReviewContent {
-    width: 20em;
+    width: 100%;
 }
 div#breakIn {}
 
 div#warningPrompt {}
 
 div#first_screen {
-    width: 20em;
+    width: 100%;
 }
 
 a {}
@@ -121,7 +121,7 @@ a#testing {}
 a#listening {}
 
 div#prompt {
-    width: 20em;
+    width: 100%;
 }
 
 div#prompt p {}

@@ -55,9 +55,9 @@ h3 {
 }
 
 div#content-wrapper {
-    /* height: 50vh;
+    height: 50vh;
     min-height: 20em;
-    width: 20em; */
+    width: 20em;
     border-left: 1px gray solid;
 }
 
@@ -75,7 +75,6 @@ div#header {
 
 div#header h1 {
     font-size: 1em;
-    background-color: fuchsia;
 }
 
 div#user {

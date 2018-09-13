@@ -111,7 +111,7 @@ $result = $result->fetch_assoc();
                 if ($result['transcription'] == 1) {
                     echo "<p>You can update your transcription here.</p>";
                     echo "<div id='transcription2' contenteditable='true' class='transcription'>{$result2['transcription']}</div>";
-                    echo "<a class='button saveTranscription' id='saveTranscription2' onClick='saveTranscription(0)'>Save Transcription</a>";
+                    echo "<a class='button saveTranscription' id='saveTranscription2' onClick='saveTranscription($prompt_id , \"$netid\", 0)'>Save Transcription</a>";
                 }
                 echo "<div id='placeholder'></div>";
                 

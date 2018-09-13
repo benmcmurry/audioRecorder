@@ -272,7 +272,7 @@ function savePrompt() {
     });
 }
 
-function saveTranscription(attempt){
+function saveTranscription(prompt_id, netid, attempt){
     if (attempt == 1) {
     savedTranscription = $("#transcription1").text();
     } else {

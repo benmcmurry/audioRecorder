@@ -15,7 +15,7 @@ if ($_POST['transcription'] == 1) {
    
     echo "<p>Now, please transcribe what you recorded. You can refer back to the audio above.</p>";
     echo "<div id='transcription1' contenteditable='true' class='transcription'></div>";
-    echo "<a class='button saveTranscription' id='saveTranscription' onClick='saveTranscription(1)'>Save Transcription</a>";
+    echo "<a class='button saveTranscription' id='saveTranscription' onClick='saveTranscription({$_POST['prompt_id']}, \"{$_POST['netid']}\", 1)'>Save Transcription</a>";
    
 }
 

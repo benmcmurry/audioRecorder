@@ -284,6 +284,11 @@ function saveTranscription(prompt_id, netid, attempt){
         url: 'saveTranscription.php',
         data: {prompt_id: prompt_id, savedTranscription: savedTranscription, netid: netid}
     }).done(function(phpfile){
-        $("#saveTranscription").html(phpfile);
+        $(".saveTranscription").html(phpfile);
+        setTimeout(returnSaveButton, 3000);
     });
+}
+
+function returnSaveButton() {
+    $(".saveTranscription").html("Save Transcription")
 }

@@ -55,14 +55,14 @@ h3 {
 }
 
 div#content-wrapper {
-    min-height: 50vh;
-    min-height: 20em;
-    min-width: 51vh;
+    display: block;
+    padding: 0em;
     background-color: red;
 }
 
 div#content {
     display: block;
+    padding: 0em;
     background-color: pink;
 }
 

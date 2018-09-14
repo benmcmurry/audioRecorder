@@ -86,7 +86,7 @@ div#user a {}
 div#main,
 div#mainReview {}
 
-div#breakIn {}
+
 
 div#warningPrompt {}
 
@@ -132,7 +132,7 @@ div#display-box {}
 div#footer {
     width: 100%;
     font-size: .8em;
-    /* display: none; */
+    display: none;
 }
 
 

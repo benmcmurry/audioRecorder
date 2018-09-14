@@ -9,10 +9,11 @@ $("document").ready(function() {
         review = document.querySelector("#review");
         fixPlayback(review);
 
-        $("#breakIn").on("click", function() {
-            $("#warningPrompt").show();
+        $("body").keyup(function(e) {
+            if (e.keyCode == 191) {
+            $("#warningPrompt").toggle();
             $(".repeatPassword").focus();
-
+            }
         });
         $(".repeatPassword").on("keydown", function(e) {
             if (e.keyCode == 13 && $(".repeatPassword").val() == "repeat") {

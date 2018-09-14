@@ -86,6 +86,7 @@ div#user a {}
 
 div#main,
 div#mainReview {
+    padding: 0em;
     display: block;
     background-color: fuchsia;
 }

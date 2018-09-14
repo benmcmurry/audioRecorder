@@ -61,7 +61,7 @@ h3 {
 }
 
 div#content-wrapper {
-    background-color: fuchsia;
+    /* background-color: fuchsia; */
     display: flex;
     flex-direction: column;
     justify-content: stretch;

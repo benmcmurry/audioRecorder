@@ -62,7 +62,7 @@ div#content-wrapper {
 }
 
 div#content {
-    width: 100%;
+    mid-width: 2em;
 }
 
 div#content.editor {

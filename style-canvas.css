@@ -87,9 +87,7 @@ div#user a {}
 
 div#main,
 div#mainReview {
-    flex-grow: 0;
     display: block;
-    min-width: 10px;
     background-color: fuchsia;
 }
 

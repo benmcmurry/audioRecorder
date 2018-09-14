@@ -58,9 +58,11 @@ div#content-wrapper {
     min-height: 50vh;
     min-height: 20em;
     min-width: 51vh;
+    background-color: red;
 }
 
 div#content {
+    background-color: pink;
 }
 
 div#content.editor {
@@ -84,6 +86,7 @@ div#user a {}
 div#main,
 div#mainReview {
     min-width: 10px;
+    background-color: fuchsia;
 }
 
 

@@ -184,10 +184,12 @@ a.button {
     width: 300px;
     font-size: 1em;
     cursor: pointer;
+    color: white;
+    background-color: cornflowerblue;
 }
 
 a#saveTranscription,
-a#saveTranscription2 {
+a#saveTranscription2, a#save {
     width: 250px;
     font-size: 1em;
     margin: 1em 0em;
@@ -445,6 +447,10 @@ div#responses {
     padding: 10px;
     overflow-y: auto;
     width: 60%;
+}
+
+div.results {
+    display: none;
 }
 
 div#promptInfo h4 {

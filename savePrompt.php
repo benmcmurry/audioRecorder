@@ -7,9 +7,10 @@ $title = $_POST['title'];
 $text = $_POST['text'];
 $prepare_time = $_POST['prepare_time'];
 $response_time = $_POST['response_time'];
+$transcription = $_POST['transcription'];
 
-$query = $elc_db->prepare("Update Prompts set title = ?, text = ?, prepare_time = ?, response_time = ? where prompt_id = ?");
-$query->bind_param("sssss", $title, $text, $prepare_time, $response_time, $prompt_id);
+$query = $elc_db->prepare("Update Prompts set title = ?, text = ?, prepare_time = ?, response_time = ?, transcription = ? where prompt_id = ?");
+$query->bind_param("ssssss", $title, $text, $prepare_time, $response_time, $transcription, $prompt_id);
 $query->execute();
 $result = $query->get_result();
 echo "Saved!"

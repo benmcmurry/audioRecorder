@@ -62,8 +62,7 @@ div#content-wrapper {
 }
 
 div#content {
-    min-width: 10px;
-    flex-grow: 0;
+    display: block;
     background-color: pink;
 }
 

@@ -10,12 +10,12 @@ $targetFile = SITE_ROOT.$targetdir."prompt_".$_POST['prompt_id']."-".$_POST['net
 $fileLocation = "uploads/prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".ogg";
 
 if (move_uploaded_file($_FILES['myBlob']['tmp_name'], $targetFile)) {
-echo "Your response has been saved.";
+echo "<p align='center'>Your response has been saved.</p>";
 if ($_POST['transcription'] == 1) {
    
     echo "<p>Now, please transcribe what you recorded. You can refer back to the audio above.</p>";
     echo "<div id='transcription1' contenteditable='true' class='transcription'></div>";
-    echo "<a class='button saveTranscription' id='saveTranscription' onClick='saveTranscription({$_POST['prompt_id']}, \"{$_POST['netid']}\", 1)'>Save Transcription</a>";
+    echo "<a align='center' class='button saveTranscription' id='saveTranscription' onClick='saveTranscription({$_POST['prompt_id']}, \"{$_POST['netid']}\", 1)'>Save Transcription</a>";
    
 }
 

@@ -106,12 +106,12 @@ $result = $result->fetch_assoc();
             if (isset($result2)) {
                 $alreadyDone = TRUE;
                 echo "<div id='mainReview'>";
-                echo "<div id='mainReviewContent'><p>You have already answered this prompt. You can play your answer below.</p>";
-                echo "<audio id='review' controls><source src='".$result2['filename']."' type='".$result2['filetype']."'></audio>";
+                echo "<div id='mainReviewContent'><p>You have already answered this prompt.</p><p> You can play your answer below.</p>";
+                echo "<audio class='audioBox' id='review' controls><source src='".$result2['filename']."' type='".$result2['filetype']."'></audio>";
                 if ($result['transcription'] == 1) {
                     echo "<p>You can update your transcription here.</p>";
                     echo "<div id='transcription2' contenteditable='true' class='transcription'>{$result2['transcription']}</div>";
-                    echo "<a class='button saveTranscription' id='saveTranscription2' onClick='saveTranscription($prompt_id , \"$netid\", 0)'>Save Transcription</a>";
+                    echo "<a align='center' class='button saveTranscription' id='saveTranscription2' onClick='saveTranscription($prompt_id , \"$netid\", 0)'>Save Transcription</a>";
                 }
                 echo "<div id='placeholder'></div>";
                 
@@ -136,8 +136,8 @@ $result = $result->fetch_assoc();
                         echo "<p>".$result['text']."<br /> <br />"; 
                         echo "You have {$result['prepare_time']} seconds to prepare and {$result['response_time']} seconds to respond.</p>";
                         ?>
-                        <p><audio id='audioRecording' controls></p>
-                        </audio>
+                        <div class='audioBox'><audio id='audioRecording' controls>
+                        </audio></div>
                         <div id='timer_container'>
                             <img id='type' src='images/lightbulb.jpg' />
                             <div id='timer'></div>

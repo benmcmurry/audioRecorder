@@ -84,7 +84,6 @@ function record(stream) {
 function startRecording() {
     // this sets a timer before the prepare timer starts
     (function() {
-        setTimeout(function() {
             timer(prepare_time, "Prepare ")
             $("#timer_container").css({
                 "display": "flex",
@@ -92,9 +91,7 @@ function startRecording() {
                 "justify-content": "space-between",
                 "align-items": "center"
             });
-        }, 5000);
-
-    })();
+        })();
     // end timer waiter
 
 
@@ -113,7 +110,7 @@ function startRecording() {
             console.log("start recording");
             $("img#type").attr("src", "images/record.jpg");
             timer(response_time, "Recording ");
-        }, 5000 + prepare_time * 1000 + 1000);
+        }, prepare_time * 1000 + 1000);
 
     })();
 
@@ -123,7 +120,7 @@ function startRecording() {
 
             $("#timer").hide();
             stopRecording();
-        }, 5000 + prepare_time * 1000 + response_time * 1000 + 2000);
+        }, prepare_time * 1000 + response_time * 1000 + 2000);
 
     })();
 }

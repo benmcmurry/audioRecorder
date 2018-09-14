@@ -61,7 +61,7 @@ h3 {
 }
 
 div#content-wrapper {
-    background-color: white;
+    background-color: fuchsia;
     display: flex;
     flex-direction: column;
     justify-content: stretch;
@@ -78,6 +78,8 @@ div#content {
     justify-content: flex-start;
     align-items: stretch;
     width: 100vw;
+    border-top: 1px #efefef solid;
+
 }
 
 div#content.editor {
@@ -122,18 +124,28 @@ div#user a {
 
 div#main,
 div#mainReview {
-    background-color: #efefef;
-    padding: 2em;
+    background-color:white;
+    padding: 1em;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
 }
+
 #mainReviewContent {
     background-color: white;
-    width: 50vw;
+    width: 400px;
     padding: 1em;
+    border-top: 1px black solid;
+    border-bottom: 1px black solid;
+
+}
+
+.audioBox {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 div#breakIn {
@@ -169,7 +181,7 @@ div#first_screen {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 50vw;
+    width: 400px;
     flex-grow: 0;
     background-color: white;
 }
@@ -185,7 +197,9 @@ a.button {
     font-size: 1em;
     cursor: pointer;
 }
-a#saveTranscription, a#saveTranscription2 {
+
+a#saveTranscription,
+a#saveTranscription2 {
     width: 250px;
     font-size: 1em;
     margin: 1em 0em;
@@ -193,10 +207,12 @@ a#saveTranscription, a#saveTranscription2 {
     background-color: cornflowerblue;
     text-decoration: none;
     padding: 10px 6px;
+    margin-left:auto;
+    margin-right: auto;
+
 }
-a#save {
-   
-}
+
+a#save {}
 
 a#rec,
 a#test_record {
@@ -209,13 +225,17 @@ a#test_record {
 
 a#rec:hover,
 a#test_record:hover,
-a#save:hover, a#saveTranscription:hover, a#saveTranscription2:hover {
+a#save:hover,
+a#saveTranscription:hover,
+a#saveTranscription2:hover {
     background-color: darkblue;
 }
 
 a#rec:active,
 a#test_record:active,
-a#save:active, a#saveTranscription:hover, a#saveTranscription2:hover {
+a#save:active,
+a#saveTranscription:hover,
+a#saveTranscription2:hover {
     position: relative;
     top: 1px;
 }
@@ -251,12 +271,12 @@ div#prompt {
     display: none;
     flex-grow: 0;
     background-color: white;
-    width: 50vw;
+    width: 400px;
     padding: 1em;
 }
 
- p {
-    padding:1em, 0em;
+p {
+    padding: .5em 0em;
 }
 
 #audioRecording {
@@ -270,7 +290,7 @@ div#timer_container {
     /* width: 100vw; */
     justify-content: space-between;
     display: none;
-    margin-top:1em;
+    margin-top: 1em;
 }
 
 div#timer {}
@@ -287,9 +307,9 @@ img#type {
 div#display-box {
     display: block;
     display: none;
-    text-align: center;
+    text-align: left;
     background-color: white;
-    width:50vw;
+    width: 400px;
 }
 
 div#footer {
@@ -327,15 +347,6 @@ div#footer div#attribution span {
     padding: 0px 10px 5px;
 }
 
-@media all and (max-width: 475px) {
-    div#header h1 {
-        font-size: 1em;
-    }
-    div#user {
-        font-size: .8em;
-    }
-}
-
 @media all and (max-width: 420px) {
     div#header h1 {
         font-size: 1em;
@@ -344,23 +355,6 @@ div#footer div#attribution span {
         font-size: .8em;
     }
 }
-
-/* @media all and (max-width: 380px) {
-    div#header h1 {
-        font-size: .8em;
-    }
-    div#user {
-        font-size: .6em;
-    }
-    div#footer {
-        font-size: .6em;
-    }
-    a.button {
-        width: 200px;
-        font-size: 1.5em;
-    }
-} */
-
 
 /* teacher styles */
 
@@ -466,7 +460,6 @@ div#responses {
 }
 
 div#promptInfo h4 {
-
     font-size: 1.1em;
     Margin-top: 25px;
 }
@@ -485,5 +478,10 @@ div#promptInfo h4 {
     padding: 1em;
     font-size: 1em;
     display: block;
-    /* width: 80vw; */
+}
+
+.saveTranscription {
+    display: block;
+    margin-left:auto;
+    margin-right:auto;
 }

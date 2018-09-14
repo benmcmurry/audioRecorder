@@ -57,13 +57,11 @@ h3 {
 div#content-wrapper {
     display: block;
     padding: 0em;
-    background-color: red;
 }
 
 div#content {
     display: block;
     padding: 0em;
-    background-color: pink;
 }
 
 div#content.editor {
@@ -88,7 +86,7 @@ div#main,
 div#mainReview {
     padding: 0em;
     display: block;
-    background-color: fuchsia;
+    border: 1px solid black;
 }
 
 

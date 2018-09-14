@@ -85,7 +85,8 @@ div#user a {}
 div#main,
 div#mainReview {
     padding: 0em;
-    display: block;
+    display: inline-block;
+    
     border: 1px solid black;
 }
 

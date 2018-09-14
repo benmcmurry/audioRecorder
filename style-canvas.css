@@ -83,7 +83,7 @@ div#user a {}
 
 div#main,
 div#mainReview {
-    mid-width: 10px;
+    min-width: 10px;
 }
 
 

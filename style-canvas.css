@@ -55,9 +55,9 @@ h3 {
 }
 
 div#content-wrapper {
-    height: 50vh;
+    min-height: 50vh;
     min-height: 20em;
-    width: 51vh;
+    min-width: 51vh;
     border-left: 1px gray solid;
 }
 
@@ -70,7 +70,7 @@ div#content.editor {
 }
 
 div#header {
-    width: 100%;
+    display: none;
 }
 
 div#header h1 {
@@ -132,6 +132,7 @@ div#display-box {}
 div#footer {
     width: 100%;
     font-size: .8em;
+    display: none;
 }
 
 

@@ -55,12 +55,12 @@ h3 {
 }
 
 div#content-wrapper {
-    display: block;
+    display: inline-block;
     padding: 0em;
 }
 
 div#content {
-    display: block;
+    display: inline-block;
     padding: 0em;
 }
 
@@ -84,10 +84,11 @@ div#user a {}
 
 div#main,
 div#mainReview {
-    padding: 0em;
+    padding: 1em;
     display: inline-block;
     
     border: 1px solid black;
+    border-radius: 4px;
 }
 
 

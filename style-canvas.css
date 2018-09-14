@@ -70,7 +70,7 @@ div#content.editor {
 }
 
 div#header {
-    /* display: none; */
+    display: none;
 }
 
 div#header h1 {

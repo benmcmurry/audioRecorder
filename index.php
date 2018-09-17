@@ -91,7 +91,7 @@ $result = $result->fetch_assoc();
 ?>
         <?php
         if ($instructor !== FALSE) {
-            include_once('teacherView.php');
+            include_once('responses.php');
         } else {
             ?>
 

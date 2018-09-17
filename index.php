@@ -91,7 +91,8 @@ $result = $result->fetch_assoc();
 ?>
         <?php
         if ($instructor !== FALSE) {
-            include_once('responses.php');
+           echo "You can see student responses in speedgrader OR visit http://elc.byu.edu/audioRecorder/responses.php?prompt_id=$prompt_id.";
+            
         } else {
             ?>
 

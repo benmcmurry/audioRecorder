@@ -16,7 +16,7 @@ $query->execute();
 $result = $query->get_result();
 $result = $result->fetch_assoc();
 
-echo "<div style='width: 20em; padding: 1em;border: 1px solid black; background-color: #efefef;margin: 1em auto;font-family: LatoWeb,Helvetica Neue,Helvetica,Arial,sans-serif;'>";
+echo "<div style='width: 20em; padding: 1em;border: 1px solid black; background-color: white;margin: 1em auto;font-family: LatoWeb,Helvetica Neue,Helvetica,Arial,sans-serif;'>";
 echo "<p>Prompt: ".$result['text']."<br /><br />"; 
 echo "You have {$result['prepare_time']} seconds to prepare and {$result['response_time']} seconds to respond.</p><br /><br />";
 

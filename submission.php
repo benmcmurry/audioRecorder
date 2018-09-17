@@ -21,5 +21,8 @@ echo "<p>Prompt: ".$result['text']."<br /><br />";
 echo "You have {$result['prepare_time']} seconds to prepare and {$result['response_time']} seconds to respond.</p><br /><br />";
 
 echo "<audio id='review' controls><source src='".$result['filename']."' type='".$result['filetype']."'></audio>";
+if ($result['transcription'] !== NULL) {
+    echo "<div>{$result['transcription']}</div>";
+}
 echo "</div>";
 ?>

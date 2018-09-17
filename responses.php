@@ -74,7 +74,7 @@ include_once('addUser.php');
                         while ($row = $result->fetch_assoc()) {
                             echo "<div class='response' id='".$row['prompt_id']."'>";
                             echo "<div class='title'>".$row['name']." : ".$row['date_created']."</div>";
-                            echo "<div class='results'><audio controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio>";
+                            echo "<div class='results'><audio  style='padding: 0em 0em 2em;' controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio>";
                             echo "<div class='transcription'>".$row['transcription_text']." </div>";
                             echo "</div></div>";
                         }

@@ -22,6 +22,6 @@ echo "You have {$result['prepare_time']} seconds to prepare and {$result['respon
 
 echo "<audio id='review' controls><source src='".$result['filename']."' type='".$result['filetype']."'></audio>";
     
-echo "<h4>Stundent Transcription: </h4><div class='transcription'>{$result['transcription_text']}</div>";
+echo "<br /><h4>Student Transcription: </h4><br /><div class='transcription'>{$result['transcription_text']}</div>";
 echo "</div>";
 ?>

@@ -110,7 +110,7 @@ $result = $result->fetch_assoc();
                 echo "<audio class='audioBox' id='review' controls><source src='".$result2['filename']."' type='".$result2['filetype']."'></audio>";
                 if ($result['transcription'] == 1) {
                     echo "<p>You can update your transcription here.</p>";
-                    echo "<div id='transcription2' contenteditable='true' class='transcription'>{$result2['transcription']}</div>";
+                    echo "<div id='transcription2' contenteditable='true' class='transcription'>{$result2['transcription_text']}</div>";
                     echo "<a align='center' class='button saveTranscription' id='saveTranscription2' onClick='saveTranscription($prompt_id , \"$netid\", 0)'>Save Transcription</a>";
                 }
                 echo "<div id='placeholder'></div>";

@@ -75,7 +75,7 @@ include_once('addUser.php');
                             echo "<div class='response' id='".$row['prompt_id']."'>";
                             echo "<div class='title'>".$row['name']." : ".$row['date_created']."</div>";
                             echo "<div class='results'><audio controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio>";
-                            echo "<div class='transcription'>".$row['transcription']." </div>";
+                            echo "<div class='transcription'>".$row['transcription_text']." </div>";
                             echo "</div></div>";
                         }
                         

@@ -15,6 +15,13 @@
                         echo "<h4>Prompt</h4><div id='text' contenteditable='true' class='editable'>".$promptRow['text']."</div>";
                         echo "<h4>Preparation Time</h4><div id='prepare_time' contenteditable='true' class='editable'>".$promptRow['prepare_time']."</div>";
                         echo "<h4>Response Time</h4><div id='response_time' contenteditable='true' class='editable'>".$promptRow['response_time']."</div>";
+                        echo "<h4>Are students required to transcribe their recording?<br /> <br />";
+                        if ($promptRow['transcription'] == 1) 
+                        {
+                            echo "Yes <input type='radio' value='1' name='transcriptionReq' checked> &nbsp; &nbsp; No <input type='radio' value='0' name='transcriptionReq'></h4>";
+                        } else {
+                            echo "Yes <input type='radio' value='1' name='transcriptionReq'> &nbsp; &nbsp; No <input type='radio' value='0' name='transcriptionReq' checked></h4>";
+                        }
                         
             ?>
                 <a class='button' id='save'>Save</a>
@@ -33,6 +40,7 @@
                             echo "<div class='response' id='".$row['prompt_id']."'>";
                             echo "<div class='title'>".$row['name']." : ".$row['date_created']."</div>";
                             echo "<audio controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio>";
+                            echo "<div class='transcription'>".$row['transcription_text']." </div>";
                             echo "</div>";
                         }
                         

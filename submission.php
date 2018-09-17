@@ -22,7 +22,7 @@ echo "You have {$result['prepare_time']} seconds to prepare and {$result['respon
 
 echo "<audio id='review' controls><source src='".$result['filename']."' type='".$result['filetype']."'></audio>";
 if ($result['transcription'] !== NULL) {
-    echo "<div>{$result['transcription']}</div>";
+    echo "<div>Transcription: {$result['transcription']}</div>";
 }
 echo "</div>";
 ?>

@@ -18,7 +18,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."
         <meta name="mobile-web-app-capable" content="yes">
         <meta id="theme-color" name="theme-color" content="#fff">
         <title>ELC Audio Recorder</title>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style.css?=time()" />
         <script src="jquery.js"></script>
 
         <script type="text/javascript">

@@ -31,7 +31,7 @@
             <h3>Responses</h3>
 
             <?php
-                    
+                        $transcription_text = "";
                         $query = $elc_db->prepare("Select * from Audio_files natural join Users where prompt_id=? order by date_created DESC");
                         $query->bind_param("s", $prompt_id);
                         $query->execute();
@@ -42,8 +42,9 @@
                             echo "<audio controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio>";
                             echo "<div class='transcription'>".$row['transcription_text']." </div>";
                             echo "</div>";
+                            $transcription_text = $transcription_text.$row['name']."<br />".$row['transcription_text']."<br />";
                         }
-                        
+                        echo $transcription_text;
                     ?>
         </div>
         <!-- end responses div -->

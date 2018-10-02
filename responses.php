@@ -77,7 +77,7 @@ include_once('addUser.php');
                             echo "<div class='results'><audio  style='padding: 0em 0em 2em;' controls><source src='".$row['filename']."' type='".$row['filetype']."'></audio>";
                             echo "<div class='transcription'>".$row['transcription_text']." </div>";
                             echo "</div></div>";
-                            $transcription_text = $transcription_text.$row['name']."<br />".$row['transcription_text']."<br />";
+                            $transcription_text = "<h3>".$transcription_text.$row['name']."</h3><p>".$row['transcription_text']."</p>";
                         }
                         echo $transcription_text;
 

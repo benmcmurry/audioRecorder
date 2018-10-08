@@ -47,8 +47,8 @@ include_once('addUser.php');
                         $promptRow = $promptResult->fetch_assoc();
                         echo "<h4>Title</h4><div id='title' contenteditable='true' class='editable'>".$promptRow['title']."</div>";
                         echo "<h4>Prompt</h4><div id='text' contenteditable='true' class='editable'>".$promptRow['text']."</div>";
-                        echo "<h4>Preparation Time</h4><div id='prepare_time' contenteditable='true' class='editable'>".$promptRow['prepare_time']."</div>";
-                        echo "<h4>Response Time</h4><div id='response_time' contenteditable='true' class='editable'>".$promptRow['response_time']."</div>";
+                        echo "<h4>Preparation Time (in seconds)</h4><div id='prepare_time' contenteditable='true' class='editable'>".$promptRow['prepare_time']."</div>";
+                        echo "<h4>Response Time (in seconds) </h4><div id='response_time' contenteditable='true' class='editable'>".$promptRow['response_time']."</div>";
                         echo "<h4>Are students required to transcribe their recording?<br /> <br />";
                         if ($promptRow['transcription'] == 1) 
                         {

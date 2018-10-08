@@ -67,13 +67,13 @@ $result = $result->fetch_assoc();
             var testMicrophone = [];
         </script>
         <script src="js.js"></script>
-        <?php
+       
+
+    </head>
+    <?php
         if (isset($_GET['submission_id'])) {
             include_once("submission.php");
         } else { ?>
-
-    </head>
-
     <body>
         
         <div id='content-wrapper'>

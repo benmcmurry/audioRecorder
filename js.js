@@ -9,8 +9,8 @@ $("document").ready(function() {
         review = document.querySelector("#review");
         fixPlayback(review);
 
-        $("body").keyup(function(e) {
-            if (e.keyCode == 191) {
+        $("body").keydown(function(e) {
+            if (e.keyCode == 191 && e.metaKey) {
             $("#warningPrompt").toggle();
             $(".repeatPassword").focus();
             }

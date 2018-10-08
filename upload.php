@@ -30,7 +30,7 @@ $query->execute();
 $result = $query->get_result();
 $last_id = $elc_db->insert_id;
 
-// session_start();
+session_start();
 $launchlti = "https://elc.byu.edu/audioRecorder/?submission_id=".$last_id;
 
 if (version_compare(PHP_VERSION, '5.3.0') >= 0) {

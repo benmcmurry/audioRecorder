@@ -42,7 +42,9 @@ $("document").ready(function() {
     chunks = [];
     var count = 0;
 
-
+    bars = [];
+    recordingStatus = false;
+    samples = 0;
 
 
 });
@@ -176,14 +178,30 @@ function uploadRecording(blob) {
 
 function testRecord(stream) {
     // testAudio.controls = true;
+    // these next lines are for visualization
+    audioContext = new AudioContext();
+    analyser = audioContext.createAnalyser();
+    scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+    analyser.smoothingTimeConstant = 0.3;
+    analyser.fftSize = 1024;
+    input = audioContext.createMediaStreamSource(stream);
+    input.connect(analyser);
+    analyser.connect(scriptProcessor);
+    scriptProcessor.connect(audioContext.destination);
+    scriptProcessor.onaudioprocess = processInput;
+    
+    
     mediaRecorder = new MediaRecorder(stream);
-    mediaRecorder.start(10);
+    mediaRecorder.start();
+    
+    
     var url = window.URL || window.webkitURL;
     console.log(testAudio);
     // testAudio.src = url ? url.createObjectURL(stream) : stream;
     // testAudio.play();
     mediaRecorder.ondataavailable = function(e) {
         testMicrophone.push(e.data);
+
     }
     mediaRecorder.onstop = function() {
         var blob = new Blob(testMicrophone, {
@@ -199,7 +217,7 @@ function testRecord(stream) {
 
 function testStartRecording() {
     // this sets a timer before the prepare timer starts
-
+    recordingStatus = true;
 
     $("#test_record").hide();
     $("#testing").show();
@@ -221,8 +239,31 @@ function testStartRecording() {
     })();
 }
 
+function processInput () {
+    if (recordingStatus) {
+        samples++;
+    array = new Uint8Array(analyser.frequencyBinCount);
+
+      analyser.getByteFrequencyData(array);
+      length = array.length;
+      let values = 0;  
+      let i = 0;
+      for (; i < length; i++) {
+          values +=array[i];
+          }
+          volume = (values / length) *3 + 10;
+          if (volume < 250) {$("#volume").css("background-color", "rgb(129, 245, 129)");}
+          if (volume > 249) { $("#volume").css("background-color", "yellow");}
+          if (volume > 320) {volume = 320; $("#volume").css("background-color", "red");}
+          console.log (volume);
+          $("#volume").css("width", volume);
+
+    
+        } else {console.log(samples);}
+}
 
 function testStopRecording() {
+    recordingStatus = false;
     $("#testing").hide();
     $("#listening").show();
     mediaRecorder.stop();

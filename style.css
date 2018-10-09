@@ -172,6 +172,15 @@ div#first_screen {
     background-color: white;
 }
 
+div#volume {
+    
+    background-color: rgb(129, 245, 129);
+    height: 10px;
+    width: 320px;
+    /* border-left: 5px red solid;
+    outline: 5px yellow solid; */
+}
+
 a {
     text-align: center;
 }

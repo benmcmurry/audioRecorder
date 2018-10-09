@@ -132,6 +132,18 @@ $result = $result->fetch_assoc();
                         <a class='button' id='testing'>Please speak</a>
                         <a class='button' id='listening'>Please Listen</a>
                         <a class='button' id="rec">Begin</a>
+                        <div id='volume'>
+                            <div class='volbox' id='volbox-1'></div>
+                            <div class='volbox' id='volbox-2'></div>
+                            <div class='volbox' id='volbox-3'></div>
+                            <div class='volbox' id='volbox-4'></div>
+                            <div class='volbox' id='volbox-5'></div>
+                            <div class='volbox' id='volbox-6'></div>
+                            <div class='volbox' id='volbox-7'></div>
+                            <div class='volbox' id='volbox-8'></div>
+                            <div class='volbox' id='volbox-9'></div>
+                            <div class='volbox' id='volbox-10'></div>
+                        </div>
                     </div>
                     <div id='prompt'>
                         <?php 

@@ -40,15 +40,15 @@ $result = $result->fetch_assoc();
         <meta name="mobile-web-app-capable" content="yes">
         <meta id="theme-color" name="theme-color" content="#fff">
         <title>ELC Audio Recorder</title>
-        <link rel="stylesheet" href="style.css?=time()" />
-        <!-- <link rel="stylesheet" href="style-canvas.css?=time()" /> -->
+        <link rel="stylesheet" href="style.css?version=1810.10" />
+        <!-- <link rel="stylesheet" href="style-canvas.css?version=1810.10" /> -->
 
         <?php
         if ($lti->valid) { 
             if ($instructor !== FALSE) {
                 echo "<style>div#content-wrapper {height: 40em;} div#content.editor {max-width: 100%;} </style>";
             } 
-            echo  "<link rel='stylesheet' href='style-canvas.css?=time()' />";
+            echo  "<link rel='stylesheet' href='style-canvas.css?version=1810.10' />";
             
             }
         ?>

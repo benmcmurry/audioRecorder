@@ -18,7 +18,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."
         <meta name="mobile-web-app-capable" content="yes">
         <meta id="theme-color" name="theme-color" content="#fff">
         <title>ELC Audio Recorder</title>
-        <link rel="stylesheet" href="style.css?=time()" />
+        <link rel="stylesheet" href="style.css?version=1810.10" />
         <script src="jquery.js"></script>
 
         <script type="text/javascript">
@@ -36,7 +36,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {$server = $_SERVER['SERVER_NAME']."
             
             <div id='newPrompt'>
                     
-                    <a id='addPrompt' href='addPrompt.php' title='Create New Prompt'>+</a>
+                    <a id='addPrompt' class='button' href='addPrompt.php' title='Create New Prompt'>+ Create New Prompt</a>
                     
                 
                 </div>

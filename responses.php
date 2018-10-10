@@ -18,7 +18,7 @@ include_once('addUser.php');
         <meta name="mobile-web-app-capable" content="yes">
         <meta id="theme-color" name="theme-color" content="#fff">
         <title>ELC Audio Recorder</title>
-        <link rel="stylesheet" href="style.css?=time()" />
+        <link rel="stylesheet" href="style.css?version=1810.10" />
         <script src="jquery.js"></script>
         <script src="teacher_js.js"></script>
 
@@ -30,15 +30,21 @@ include_once('addUser.php');
     <body>
         <div id='content-wrapper'>
             <div id="header">
-                <a id='returnToPromptList' href='teacher.php'>&nbsp;<img width='12px' src='images/return.png' />&nbsp;</a>
+                <a id='returnToPromptList' href='teacher.php'>&nbsp;<img width='12px' src='images/return.png' />&nbsp;Return to Prompt List</a>
                 <?php include_once("common_content/header.php");?>
             </div>
             <div id='content' class='editor'>
-              
-                
+                <div id='promptLink'>
+                <?php
+                $promptLink = str_replace("responses.php", "", "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+
+                echo "Prompt Link: $promptLink";
+                ?>
+                </div>
                 <div id='editorWrapper'>
                     <div id='promptInfo'>
                         <h3>Prompt Info</h3>
+                        
                         <?php
                         $promptQuery = $elc_db->prepare("Select * from Prompts where prompt_id=?");
                         $promptQuery->bind_param("s", $prompt_id);

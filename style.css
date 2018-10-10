@@ -78,10 +78,7 @@ div#content {
     justify-content: flex-start;
     align-items: stretch;
     width: 100vw;
-
 }
-
-
 
 div#header {
     width: 100vw;
@@ -121,7 +118,7 @@ div#user a {
 
 div#main,
 div#mainReview {
-    background-color:white;
+    background-color: white;
     padding: 1em;
     flex-grow: 1;
     display: flex;
@@ -134,7 +131,6 @@ div#mainReview {
     background-color: white;
     width: 400px;
     padding: 1em;
-
 }
 
 .audioBox {
@@ -142,7 +138,6 @@ div#mainReview {
     margin-left: auto;
     margin-right: auto;
 }
-
 
 div#warningPrompt {
     display: none;
@@ -172,13 +167,26 @@ div#first_screen {
     background-color: white;
 }
 
-div#volume {
-    
-    background-color: rgb(129, 245, 129);
-    height: 10px;
+div.volume {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: rgb(129, 245, 129); */
+    /* background-color: yellow; */
+    height: 20px;
     width: 320px;
     /* border-left: 5px red solid;
     outline: 5px yellow solid; */
+    margin: 1em 0em;
+}
+
+div.volume .volbox {
+    border: 1px solid #efefef;
+    height: 20px;
+    width: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px #efefef;
 }
 
 a {
@@ -196,7 +204,8 @@ a.button {
 }
 
 a#saveTranscription,
-a#saveTranscription2, a#save {
+a#saveTranscription2,
+a#save {
     width: 250px;
     font-size: 1em;
     margin: 1em 0em;
@@ -204,9 +213,8 @@ a#saveTranscription2, a#save {
     background-color: cornflowerblue;
     text-decoration: none;
     padding: 10px 6px;
-    margin-left:auto;
+    margin-left: auto;
     margin-right: auto;
-
 }
 
 a#save {}
@@ -270,6 +278,11 @@ div#prompt {
     background-color: white;
     width: 400px;
     padding: 1em;
+}
+
+div#prompt p {
+    width:300px;
+    margin: 10px auto;
 }
 
 p {
@@ -432,20 +445,17 @@ div.prompt {
 
 div.response:hover,
 div.prompt:hover {
-    background-color:cornflowerblue;
-    
+    background-color: cornflowerblue;
 }
 
 div#content.editor {
     /* min-width: 40vw; */
-    
 }
 
 div#editorWrapper {
     /* background-color: white; */
     max-width: 1820px;
     padding: 0px 50px;
-   
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -465,13 +475,11 @@ div#responses {
     flex-shrink: initial;
     padding: 10px;
     overflow-y: auto;
-    
 }
 
 div.results {
     padding: 1em;
     display: none;
-
 }
 
 div#promptInfo h4 {
@@ -498,6 +506,6 @@ div#promptInfo h4 {
 
 .saveTranscription {
     display: block;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
 }

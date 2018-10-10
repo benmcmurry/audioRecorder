@@ -64,6 +64,7 @@ function fixPlayback(audioInQuestion) {
 }
 
 function record(stream) {
+    visualizationOfSound(stream);
     audioElement.controls = false;
     mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start(10);
@@ -85,6 +86,7 @@ function record(stream) {
 }
 
 function startRecording() {
+    
     // this sets a timer before the prepare timer starts
     (function() {
             timer(prepare_time, "Prepare ")
@@ -113,6 +115,7 @@ function startRecording() {
             console.log("start recording");
             $("img#type").attr("src", "images/record.jpg");
             timer(response_time, "Recording ");
+            recordingStatus = true;
         }, prepare_time * 1000 + 1000);
 
     })();
@@ -130,6 +133,7 @@ function startRecording() {
 
 
 function stopRecording() {
+    recordingStatus = false;
     console.log("stop recording");
     mediaRecorder.stop();
 
@@ -179,17 +183,8 @@ function uploadRecording(blob) {
 function testRecord(stream) {
     // testAudio.controls = true;
     // these next lines are for visualization
-    audioContext = new AudioContext();
-    analyser = audioContext.createAnalyser();
-    scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
-    analyser.smoothingTimeConstant = 0.3;
-    analyser.fftSize = 1024;
-    input = audioContext.createMediaStreamSource(stream);
-    input.connect(analyser);
-    analyser.connect(scriptProcessor);
-    scriptProcessor.connect(audioContext.destination);
-    scriptProcessor.onaudioprocess = processInput;
     
+    visualizationOfSound(stream);
     
     mediaRecorder = new MediaRecorder(stream);
     mediaRecorder.start();
@@ -239,9 +234,20 @@ function testStartRecording() {
     })();
 }
 
+function visualizationOfSound(stream) {
+    audioContext = new AudioContext();
+    analyser = audioContext.createAnalyser();
+    scriptProcessor = audioContext.createScriptProcessor(2048, 1, 1);
+    analyser.smoothingTimeConstant = 0.3;
+    analyser.fftSize = 1024;
+    input = audioContext.createMediaStreamSource(stream);
+    input.connect(analyser);
+    analyser.connect(scriptProcessor);
+    scriptProcessor.connect(audioContext.destination);
+    scriptProcessor.onaudioprocess = processInput;
+}
 function processInput () {
-    if (recordingStatus) {
-        samples++;
+    if (recordingStatus){
     array = new Uint8Array(analyser.frequencyBinCount);
 
       analyser.getByteFrequencyData(array);
@@ -252,14 +258,40 @@ function processInput () {
           values +=array[i];
           }
           volume = (values / length) *3 + 10;
-          if (volume < 250) {$("#volume").css("background-color", "rgb(129, 245, 129)");}
-          if (volume > 249) { $("#volume").css("background-color", "yellow");}
-          if (volume > 320) {volume = 320; $("#volume").css("background-color", "red");}
-          console.log (volume);
-          $("#volume").css("width", volume);
+         
+          $(".volbox").css("background-color", "white");
+       
+        
+          if(volume > 320 ) {$(".volbox-20").css("background-color", "red");}
+          if(volume > 304 ) {$(".volbox-19").css("background-color", "red");}
+          if(volume > 288 ) {$(".volbox-18").css("background-color", "yellow");}
+          if(volume > 272 ) {$(".volbox-17").css("background-color", "yellow");}
+          if(volume > 256 ) {$(".volbox-16").css("background-color", "yellow");}
+          if(volume > 240) {$(".volbox-15").css("background-color", "yellow");}
+          if(volume > 224 ) {$(".volbox-14").css("background-color", "yellow");}
+          if(volume > 208 ) {$(".volbox-13").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 192 ) {$(".volbox-12").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 176 ) {$(".volbox-11").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 160 ) {$(".volbox-10").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 144 ) {$(".volbox-9").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 128 ) {$(".volbox-8").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 112 ) {$(".volbox-7").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 96 ) {$(".volbox-6").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 80 ) {$(".volbox-5").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 64 ) {$(".volbox-4").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 48 ) {$(".volbox-3").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 32 ) {$(".volbox-2").css("background-color", "rgb(129, 245, 129)");}
+          if(volume > 16 ) {$(".volbox-1").css("background-color", "rgb(129, 245, 129)");}
+
+          
+        //   if (volume < 250) {$("#volume").css("background-color", "rgb(129, 245, 129)");}
+        //   if (volume > 249) { $("#volume").css("background-color", "yellow");}
+        //   if (volume > 320) {volume = 320; $("#volume").css("background-color", "red");}
+        //   console.log (volume);
+        //   $("#volume").css("width", volume);
 
     
-        } else {console.log(samples);}
+        }
 }
 
 function testStopRecording() {

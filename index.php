@@ -132,17 +132,27 @@ $result = $result->fetch_assoc();
                         <a class='button' id='testing'>Please speak</a>
                         <a class='button' id='listening'>Please Listen</a>
                         <a class='button' id="rec">Begin</a>
-                        <div id='volume'>
-                            <div class='volbox' id='volbox-1'></div>
-                            <div class='volbox' id='volbox-2'></div>
-                            <div class='volbox' id='volbox-3'></div>
-                            <div class='volbox' id='volbox-4'></div>
-                            <div class='volbox' id='volbox-5'></div>
-                            <div class='volbox' id='volbox-6'></div>
-                            <div class='volbox' id='volbox-7'></div>
-                            <div class='volbox' id='volbox-8'></div>
-                            <div class='volbox' id='volbox-9'></div>
-                            <div class='volbox' id='volbox-10'></div>
+                        <div class='volume'>
+                            <div class='volbox volbox-1'></div>
+                            <div class='volbox volbox-2'></div>
+                            <div class='volbox volbox-3'></div>
+                            <div class='volbox volbox-4'></div>
+                            <div class='volbox volbox-5'></div>
+                            <div class='volbox volbox-6'></div>
+                            <div class='volbox volbox-7'></div>
+                            <div class='volbox volbox-8'></div>
+                            <div class='volbox volbox-9'></div>
+                            <div class='volbox volbox-10'></div>
+                            <div class='volbox volbox-11'></div>
+                            <div class='volbox volbox-12'></div>
+                            <div class='volbox volbox-13'></div>
+                            <div class='volbox volbox-14'></div>
+                            <div class='volbox volbox-15'></div>
+                            <div class='volbox volbox-16'></div>
+                            <div class='volbox volbox-17'></div>
+                            <div class='volbox volbox-18'></div>
+                            <div class='volbox volbox-19'></div>
+                            <div class='volbox volbox-20'></div>
                         </div>
                     </div>
                     <div id='prompt'>
@@ -156,6 +166,29 @@ $result = $result->fetch_assoc();
                         <div id='timer_container'>
                             <img id='type' src='images/lightbulb.jpg' />
                             <div id='timer'></div>
+                            
+                        </div>
+                        <div class='volume'>
+                            <div class='volbox volbox-1'></div>
+                            <div class='volbox volbox-2'></div>
+                            <div class='volbox volbox-3'></div>
+                            <div class='volbox volbox-4'></div>
+                            <div class='volbox volbox-5'></div>
+                            <div class='volbox volbox-6'></div>
+                            <div class='volbox volbox-7'></div>
+                            <div class='volbox volbox-8'></div>
+                            <div class='volbox volbox-9'></div>
+                            <div class='volbox volbox-10'></div>
+                            <div class='volbox volbox-11'></div>
+                            <div class='volbox volbox-12'></div>
+                            <div class='volbox volbox-13'></div>
+                            <div class='volbox volbox-14'></div>
+                            <div class='volbox volbox-15'></div>
+                            <div class='volbox volbox-16'></div>
+                            <div class='volbox volbox-17'></div>
+                            <div class='volbox volbox-18'></div>
+                            <div class='volbox volbox-19'></div>
+                            <div class='volbox volbox-20'></div>
                         </div>
                     <div id="display-box"></div>
                     

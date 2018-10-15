@@ -4,13 +4,9 @@ ini_set("display_errors", 1);
 if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https'){
     $_SERVER['HTTPS']='on'; 
 }
-
-include_once("cas-go.php");
-include_once('../../connectFiles/connect_ar.php');
-include_once('addUser.php');
-
 require_once 'ims-blti/blti.php';
 $lti = new BLTI("secret", false, false);
+$t = time();
 
 $prompt_id = $_GET['prompt_id'];
 $instructor = strpos($_POST['roles'], "Instructor");
@@ -20,7 +16,9 @@ session_start();
 $_SESSION['prompt_id'] = $prompt_id;
 $_SESSION['lis_outcome_service_url'] = $lis_outcome_service_url;
 $_SESSION['lis_result_sourcedid'] = $lis_result_sourcedid;
-
+include_once("cas-go.php");
+include_once('../../connectFiles/connect_ar.php');
+include_once('addUser.php');
 
 $query = $elc_db->prepare("Select * from Prompts where prompt_id=?");
 $query->bind_param("s", $prompt_id);
@@ -47,6 +45,7 @@ $result = $result->fetch_assoc();
         <!-- <link rel="stylesheet" href="style-canvas.css?version=1810.10" /> -->
 
         <?php
+         
         if ($lti->valid) { 
             if ($instructor !== FALSE) {
                 echo "<style>div#content-wrapper {height: 40em;} div#content.editor {max-width: 100%;} </style>";
@@ -70,14 +69,15 @@ $result = $result->fetch_assoc();
             var testMicrophone = [];
         </script>
         <script src="js.js"></script>
-     
+       
+
     </head>
     <?php
         if (isset($_GET['submission_id'])) {
             include_once("submission.php");
         } else { ?>
     <body>
-        
+        <?php echo $_SERVER['HTTP_REFERER']; ?>
         <div id='content-wrapper'>
         
         <div id="header">

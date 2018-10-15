@@ -6,7 +6,7 @@ if(isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO
 }
 require_once 'ims-blti/blti.php';
 $lti = new BLTI("secret", false, false);
-echo $_POST['roles'];
+echo $lti->valid;
 $prompt_id = $_GET['prompt_id'];
 $instructor = strpos($_POST['roles'], "Instructor");
 $lis_outcome_service_url = $_POST['lis_outcome_service_url'];

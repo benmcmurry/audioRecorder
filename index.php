@@ -45,8 +45,8 @@ $result = $result->fetch_assoc();
         <!-- <link rel="stylesheet" href="style-canvas.css?version=1810.10" /> -->
 
         <?php
-         
-        if ($lti->valid) { 
+        if (strpos($_SERVER['HTTP_REFERER'], "instructure")) {
+        
             if ($instructor !== FALSE) {
                 echo "<style>div#content-wrapper {height: 40em;} div#content.editor {max-width: 100%;} </style>";
             } 
@@ -77,7 +77,6 @@ $result = $result->fetch_assoc();
             include_once("submission.php");
         } else { ?>
     <body>
-        <?php echo $_SERVER['HTTP_REFERER']; ?>
         <div id='content-wrapper'>
         
         <div id="header">

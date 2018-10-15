@@ -86,7 +86,7 @@ $result = $result->fetch_assoc();
        
         if ($instructor !== FALSE) {
             include_once("responses.php");
-            echo "<script type='text/javascript'> $('#header, #footer').hide();</script>";
+            echo "<script type='text/javascript'> $('#header, #footer, #promptLink').hide();</script>";
             
         } else {
             ?>

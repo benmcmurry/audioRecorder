@@ -82,18 +82,10 @@ $result = $result->fetch_assoc();
             <?php include_once("common_content/header.php");?>
         </div>
         <?php
-        //for lti info
-
-        //    foreach($_POST as $key => $value) {
-        //     print "$key=$value\n";
-       // }
-
-?>
-        <?php
+       
         if ($instructor !== FALSE) {
             include_once("responses.php");
             echo "<script type='text/javascript'> $('#header, #footer').hide();</script>";
-        //    echo "You can see student responses in speedgrader OR visit http://elc.byu.edu/audioRecorder/responses.php?prompt_id=$prompt_id.";
             
         } else {
             ?>

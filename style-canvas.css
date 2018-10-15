@@ -178,3 +178,7 @@ div#responses {}
 div#promptInfo h4 {}
 
 .editable {}
+
+div#promptLink {
+    display: none;
+}

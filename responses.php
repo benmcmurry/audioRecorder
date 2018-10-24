@@ -36,7 +36,7 @@ include_once('addUser.php');
             <div id='content' class='editor'>
                 <div id='promptLink'>
                 <?php
-                $promptLink = str_replace("responses.php", "", "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
+                $promptLink = str_replace("responses.php", "", "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]");
 
                 echo "Prompt Link: $promptLink";
                 ?>

@@ -45,7 +45,7 @@ $result = $result->fetch_assoc();
         <!-- <link rel="stylesheet" href="style-canvas.css?version=1810.10" /> -->
 
         <?php
-        if (strpos($_SERVER['HTTP_REFERER'], "instructure")) {
+        if (isset( $_SERVER['HTTP_REFERER'])) {
         
             if ($instructor !== FALSE) {
                 echo "<style>div#content-wrapper {height: 40em;} div#content.editor {max-width: 100%;} </style>";

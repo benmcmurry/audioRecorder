@@ -1,4 +1,5 @@
 $("document").ready(function() {
+    
     $("a.archive").on("click", archivePrompt);
     $("a#save").on("click", savePrompt);
     'use strict';
@@ -355,11 +356,7 @@ function saveTranscription(prompt_id, netid, attempt){
         url: 'saveTranscription.php',
         data: {prompt_id: prompt_id, savedTranscription: savedTranscription, netid: netid}
     }).done(function(phpfile){
-        $(".saveTranscription").html(phpfile);
-        setTimeout(returnSaveButton, 3000);
+        $(".saveStatus").html(phpfile);
+        
     });
-}
-
-function returnSaveButton() {
-    $(".saveTranscription").html("Save Transcription")
 }

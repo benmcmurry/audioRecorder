@@ -108,6 +108,14 @@ $result = $result->fetch_assoc();
                     echo "<p>You can update your transcription here.</p>";
                     echo "<div id='transcription2' contenteditable='true' class='transcription'>{$result2['transcription_text']}</div>";
                     echo "<a align='center' class='button saveTranscription' id='saveTranscription2' onClick='saveTranscription($prompt_id , \"$netid\", 0)'>Save Transcription</a>";
+                    echo "<div id='saveStatus' class='saveStatus'></div>";
+                    echo "<script>$('#saveTranscription2').keydown(function(e){
+                        console.log(e.keyCode);
+                        if (e.keyCode == 32) {
+                            console.log('space bar');
+                            // saveTranscription(prompt_id, netid, 1);
+                        }
+                    });</script>";
                 }
                 echo "<div id='placeholder'></div>";
                 

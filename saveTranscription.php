@@ -8,6 +8,7 @@ $query = $elc_db->prepare("Update Audio_files set transcription_text = ? where p
 $query->bind_param("sss", $_POST['savedTranscription'], $_POST['prompt_id'], $_POST['netid']);
 $query->execute();
 $result = $query->get_result();
-echo "Transcript Saved!";
+$time = date('F jS\, Y h:i:s A');
+echo "Saved on $time";
 
 ?>

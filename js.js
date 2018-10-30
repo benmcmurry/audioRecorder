@@ -345,6 +345,7 @@ function savePrompt() {
 }
 
 function saveTranscription(prompt_id, netid, attempt){
+    
     if (attempt == 1) {
     savedTranscription = $("#transcription1").text();
     } else {
@@ -359,4 +360,5 @@ function saveTranscription(prompt_id, netid, attempt){
         $(".saveStatus").html(phpfile);
         
     });
+    
 }

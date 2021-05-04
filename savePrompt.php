@@ -1,22 +1,7 @@
 <?php
-$prompt_id = $_GET['prompt_id'];
-include_once("cas-go.php");
-include_once('../../connectFiles/connect_ar.php');
-$prompt_id = $_POST['prompt_id'];
-$title = $_POST['title'];
-$text = $_POST['text'];
-$prepare_time = $_POST['prepare_time'];
-$response_time = $_POST['response_time'];
-$transcription = $_POST['transcription'];
-
-$query = $elc_db->prepare("Update Prompts set title = ?, text = ?, prepare_time = ?, response_time = ?, transcription = ? where prompt_id = ?");
-$query->bind_param("ssssss", $title, $text, $prepare_time, $response_time, $transcription, $prompt_id);
-$query->execute();
-$result = $query->get_result();
-echo "Saved!"
-
-
-
-
-
+$local = $_SERVER['REMOTE_ADDR']=='127.0.0.1' ? 1 : 0;
+$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$refer_url = str_replace("elc","elctools",$actual_link);
+header('Location: '.$refer_url);
+exit();
 ?>

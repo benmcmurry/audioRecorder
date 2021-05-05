@@ -3,8 +3,8 @@ $("document").ready(function() {
     $("a.archive").on("click", archivePrompt);
     $("a#save").on("click", savePrompt);
     'use strict';
-    //navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.mediaDevices.webkitGetUserMedia || navigator.mediaDevices.mozGetUserMedia || navigator.mediaDevices.msGetUserMedia;
-    //console.log("h: "+navigator.mediaDevices.getUserMedia)
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+    console.log("h: "+navigator.getUserMedia)
 
     if ($("#review").is(":visible")) {
         $("#breakIn").css("display", "inline-block");
@@ -113,7 +113,7 @@ function startRecording() {
     //this is a time to wait before recording begins
     (function() {
         setTimeout(function() {
-            navigator.mediaDevices.getUserMedia({ "audio": true }, record, errorCallback);
+            navigator.getUserMedia({ "audio": true }, record, errorCallback);
             console.log("start recording");
             $("img#type").attr("src", "images/record.jpg");
             timer(response_time, "Recording ");
@@ -159,7 +159,7 @@ function timer(time, timerType) {
 }
 
 function errorCallback(error) {
-    console.log('navigator.mediaDevices.getUserMedia error: ', error);
+    console.log('navigator.getUserMedia error: ', error);
 }
 
 function uploadRecording(blob) {
@@ -220,9 +220,9 @@ function testStartRecording() {
     $("#testing").show();
 
     //this is a time to wait before recording begins
-    navigator.mediaDevices.getUserMedia()({
+    navigator.getUserMedia()({
         "audio": true
-    }, testRecord(), errorCallback());
+    }, testRecord, errorCallback);
     console.log("start recording");
 
 

@@ -8,7 +8,7 @@ $time = date('Y-m-d-His');
 $fileName="prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".ogg";
 $targetFile = SITE_ROOT.$targetdir."prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".ogg";
 $fileLocation = "uploads/prompt_".$_POST['prompt_id']."-".$_POST['netid']."-".$time.".ogg";
-
+echo "copy ".$_FILES['myBlob']['tmp_name']." to ".$targetFile."<br />";
 if (move_uploaded_file($_FILES['myBlob']['tmp_name'], $targetFile)) {
 echo "<p align='center'>Your response has been saved.</p>";
 if ($_POST['transcription'] == 1) {
